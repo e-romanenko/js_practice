@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>task 3</title>
+   </head>
+   <body>
+         <h2>Задача 3</h2>
+         <p>
+            Дано вартість одиниці товару і кількість. Знайти загальну вартість та ПДВ (5% від загальної вартості).
+         </p>
+      
+         <script>
+            // 1. Введення необхідних даних
+            let priceProduct =  parseFloat(prompt("Введіть вартість одного товару", "0"));
+            let quantityOfGoods = parseInt(prompt("Введіть кількість товарів", "0"));
+
+            // 2. Обчислення виразів (пошук результату)
+            let totalCost = priceProduct * quantityOfGoods;
+            let pdv = totalCost - (totalCost * 95 / 100);
+
+            // 3. Виведення результату
+            document.write(`
+            Загальна вартість всієї продукції в наявності: ${totalCost} гривень; <br>
+            Відрахування у розмірі 5% ПДВ складають: ${pdv.toFixed(2)} гривень.
+            `)
+         </script>
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>

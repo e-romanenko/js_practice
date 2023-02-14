@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>task 5</title>
+   </head>
+   <body>
+         <h2>Задача 5</h2>
+         <p>
+            Дано кількість секунд, що пройшла від початку доби. Визначити скільки це годин і хвилин. 
+         </p>
+         <script>
+            // 1. Введення необхідних даних
+            let seconds = parseInt(prompt('Введіть кількість секунд', '0'))
+
+            // 2. Обчислення виразів (пошук результату)
+            let minyutes = seconds / 60 
+            let minyutesRemainder = seconds % 60 
+
+            let hour = minyutes / 60
+            let hourRemainder =minyutes % 60
+
+            // 3. Виведення результату
+            document.write(`
+            Промайнувші ${seconds} секунди сьогоднішної доби =
+            ${minyutes.toFixed(0)}хв  ${minyutesRemainder.toFixed(0)}сек або
+            ${hour.toFixed(0)}год ${hourRemainder.toFixed(0)}хв <br>
+            <br>
+            Цей час не повернути нажаль, маю надію Ви використали його з користю :)
+            `)
+         </script>
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>

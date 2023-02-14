@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>task 0</title>
+   </head>
+   <body>
+      <h2>Задача 0</h2>
+      <p>
+         Обчислити значення виразів: <br>
+         1) S1 = a+12+b;  <br>
+         2) S2 = корінь квадратний ((a + b)/(2 * a)); <br>
+         3) S3 = корінь кубічний (a + b) * c; <br>
+         4) S4 = sin(a / -b);
+      </p>
+      <script>
+         // 1. Введення необхідних даних
+         let a = parseFloat(prompt("Введіть значення а", "0"));
+         let b = parseFloat(prompt("Введіть значення b", "0"));
+         let c = parseFloat(prompt("Введіть значення c", "0"));
+
+         // 2. Обчислення виразів (пошук результату)
+         let s1 = a + 12 + b;
+         let s2 = Math.sqrt((a + b) / (2 * a));
+         let s3 = Math.cbrt((a + b) * c);
+         let s4 = Math.sin(a / -b);
+
+         // 3. Виведення результату
+         document.write(`
+            S1 = ${s1} <br>
+            S2 = ${s2.toFixed(3)} <br>
+            S3 = ${s3.toFixed(3)} <br>
+            S4 = ${s4.toFixed(3)} 
+         `)
+      </script>
+
+      <br>
+      <br>
+      <br>
+      <div>
+         <a href="../index.html">на головну</a>
+      </div>
+
+   </body>
+</html>

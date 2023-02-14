@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>task 4</title>
+   </head>
+   <body>
+         <h2>Задача 4</h2>
+         <p>
+            Дано довжину у сантиметрах. Визначати скільки це метрів і кілометрів.
+         </p>
+         <script>
+            // 1. Введення необхідних даних
+            let cm = parseFloat(prompt("Введіть кількість сантиментрів", "0"));
+
+            // 2. Обчислення виразів (пошук результату)
+            let mt = cm / 100
+            let km =  mt  / 1000 
+            // 3. Виведення результату
+            document.write(`
+               В ${cm} сантиметрах = ${mt} метрів; <br>
+               В ${mt} метрах = ${km} кілометрів.
+            `)
+         </script>
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>
