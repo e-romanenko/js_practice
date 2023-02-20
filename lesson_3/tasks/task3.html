@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>task 3</title>
+   </head>
+   <body style="font-size: 24px;">
+         <h2>Задача 3</h2>
+         <p>
+            Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби.
+         </p>
+         <h5>Результат:</h5>
+         <script>
+
+            // 0. Позначення відомих величин 
+            const minNumber = 1, maxNumber = 5
+            let result
+
+            // 1. Введення необхідних даних         
+            const userNumber1 = parseInt(prompt("Спроба №1 вгадайте число від 1 до 5","1"))
+                  userNumber2 = parseInt(prompt("Спроба №2 вгадайте число від 1 до 5","1"))
+
+            // 2. Обчислення виразів (пошук результату)
+            // генеруємо рандомне число
+            const rundomNumber =  minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
+            
+            // порівнюємо рандомне число з числами введиними користувачем
+            if (userNumber1 === rundomNumber)
+            result = "Вітаю, Ви вгадали число з ПЕРШОЇ спроби."
+            else if (userNumber2 === rundomNumber)
+            result = "Вітаю, Ви вгадали число з ДРУГОЇ спроби."
+            else result = "Нажаль Ви не вгадали число. Пощастить насупного разу."
+
+            // 3. Bиведення результату
+            document.write(`
+            ${result} <br>
+            <br>
+            При сбробі №1 Ви ввели: ${userNumber1}<br>
+            При сбробі №2 Ви ввели: ${userNumber2}<br>
+            Рандомне число = ${rundomNumber}`)
+
+         </script>
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>

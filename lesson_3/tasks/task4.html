@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>task 4</title>
+   </head>
+   <body style="font-size: 24px;">
+         <h2>Задача 4</h2>
+         <p>
+            З клавіатури вводиться вік людини. <br>
+            Вивести на екран ким він є (дитиною у садочку, школярем, студентом, працівником, пенсіонером).
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            // 1. Введення необхідних даних         
+            const userAge = parseInt(prompt("Ведіть скільки Вам рочків", "21"));
+            const kindergartenAge = 6
+            const schoolAge = 17
+            const universityAge = 23
+            const workAge = 65
+            const pensionerAge = 65
+            let result
+
+            // 2. Обчислення виразів (пошук результату)
+            if (userAge <= kindergartenAge)
+            result = "Дивний і не завжди бажаний дітками САДОЧКОВИЙ вік :) "
+            else if(userAge <= schoolAge)
+            result = "Колись здавалось нестерпний  ШКІЛЬНИЙ вік :) "
+            else if(userAge <= universityAge)
+            result = "Оооо самостійні, бурхливі СТУДЕНТСЬКІ роки життя :) "
+            else if(userAge < workAge)
+            result = "Як що вивчився на того кого хотів, приємні РОБОЧІ роки життя :)"
+            else if(userAge >= pensionerAge)
+            result = "Те чого напевно бояться всі, ПЕНСІЯ :)"
+            else 
+            result = "дитинка ще кошеня, їй менше чим 3 рочки і їй ще треба бути з мамою:)"
+
+             // 3. Bиведення результату
+            document.write(`${result}`)
+         </script>
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>

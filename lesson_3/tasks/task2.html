@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>task 2</title>
+   </head>
+   <body style="font-size: 24px;">
+      <h2>Задача 2</h2>
+      <p>
+         З клавіатури вводиться ціна товару і кількість грошей. <br>
+         Якщо грошей не вистачає то відмовляємо у покупці, <br>
+         інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.
+      </p>
+      <h5>Результат:</h5>
+      
+      <script>
+         // 1. Введення необхідних даних         
+         const priceProduct1 = parseFloat(prompt("Введіть вартість смаколиків", "0"))
+         const priceProduct2 = parseFloat(prompt("Введіть вартість сочків", "0"))
+         const buyerMoney = parseFloat(prompt("Введіть скільки грошеняток маєте в кишені", "0"))
+         const lottery = 4
+         let result
+
+
+         // 2. Обчислення виразів (пошук результату) 
+         let sumProducts = priceProduct1 + priceProduct2;
+         let difference1 = sumProducts - buyerMoney;
+         let difference2 = buyerMoney - sumProducts;
+         let remainder = difference2 - lottery;
+
+
+         if (sumProducts > buyerMoney)      
+         result = (`Нажаль Вам не вистачає готівки ${difference1} гривень купити собі ласощі. Маєте кредитку? :)`)
+         else if (sumProducts === buyerMoney)
+         result = (`Вітаю! Вам вистачає купити собі ласощів, тільки додому підете з порожніми кишенями:) Залишок ${difference2} грн. `)
+         else 
+         result = (`Клас, у Вас достатньо грошей купити собі ласощі. І ще маєте залишок ${difference2} грн. <br>
+         Можливо бажаєте придбати лотерею за ${lottery} грн? <br>
+         Ви випробуєте свою удачу, і у Вас ще залишится ${remainder} грн в гаманці.`)
+
+         // 3. Виведення результату
+         document.write(`${result}`)
+
+      </script>
+      <br>
+      <br>
+      <br>
+      <div>
+         <a href="../index.html">на головну</a>
+      </div>
+   </body>
+</html>
