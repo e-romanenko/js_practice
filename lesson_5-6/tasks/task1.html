@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+   <body style="font-size: 22px;">
+      <h2>Задача 1</h2>
+         <p>
+            Вивести з використанням циклів маркований список з випадковими числами (1-100). <br> 
+            Кількість випадкових чисел вводиться користувачем. 
+         </p>
+         <h5>Результат:</h5>
+
+         <script>
+            // 0. Позначення відомих величин 
+            // randomNumber - рандомне число від 1 до 100
+            // minRandom = 1, maxRandom = 100
+            // userСounterNamber - кількість введених користувачем випадкових чисел 
+
+            // 1. Введення необхідних дани
+            const minRandom = 1, maxRandom = 100
+            let randomNumber
+            const userСounterNamber = parseInt(prompt("Введіть кількість рандомних чисел","1"))
+            
+            // 2. Обчислення виразів (пошук результату)
+            document.write(`<ul>`) 
+            for (let i = 1; i <= userСounterNamber ; i++) {
+               randomNumber = minRandom + Math.floor(Math.random() * maxRandom)
+
+            // 3. Виведення результату
+            document.write(`<li> ${randomNumber}</li>`)
+            }
+            document.write(`</ul>`)
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>

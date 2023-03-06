@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 9</h2>
+         <p>
+            Користувач загадує число. 
+            Комп’ютер задає питання поки не вгадає число користувача (використати confirm).
+         </p>
+         <h5>Результат:</h5>
+         
+         <script> 
+            const min=1, max=5 
+            let counter = 1
+            const userNumber = parseInt(prompt("Загадайте число від 1 до 5","1"))
+            
+// Варіант 1
+            for (let i = 1; ; i++){
+               const randomNamber = min + Math.floor(Math.random() * (max-min+1))
+               if ( confirm (`${i} спроба: це число ${randomNamber}?`)){
+               document.write(`Я вгадав число за ${counter} спроб, воно дорівнює ${randomNamber}`)
+               break}
+               counter++
+               }
+
+//Варіант 2 (але не розумію чому він не працює, сonfirm is not defined.
+//Буду вдячна як що допоможете. Дякую!)
+
+            // let question
+            // do{ 
+            //    counter++
+            //    const randomNumber = min + Math.floor(Math.random() * (max-min+1))
+            //    if(randomNumber === userNumber)
+            //    document.write(`Я вгадав, число яке Ви загадали ${randomNumber}.За ${counter} спроб.`)
+            //    else
+            //    question = сonfirm(`Спроба ${counter}. Це Число ${randomNumber}?`) 
+            // }
+            // while (question !== true)
+
+            // document.write(`я вгадав число, знадобилось ${counter} спроб.`)
+
+            
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

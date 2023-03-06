@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 13</h2>
+         <p>
+            Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. <br>
+            Маючи К снарядів користувач намагається потопити корабель
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+         // Отримання данних від користувача
+         const N = parseInt(prompt("Введіть кіл-ть рядків попя бою: N=","1"))
+         const M = parseInt(prompt("Введіть кіл-ть стовпців попя бою: M=","1"))
+         const K = parseInt(prompt("Введіть кіл-ть пострілів: K=","1"))
+
+         // Розташування корабля комп'ютером по осі "Х У" 
+         const randomX = 1 + Math.floor(Math.random() * N) 
+         const randomY = 1 + Math.floor(Math.random() * M)
+         
+         let resalt
+
+         // Створення циклу для введення пострілів користувачем та порівнння пострілів з розташуванням корабля
+         for (let i = 1; i <= K; i++) {
+            const shotX = parseInt(prompt(`Введіть координати ${i}-го пострілу по х`,"1")) 
+            const shotУ = parseInt(prompt(`Введіть координати ${i}-го пострілу по y`,"1")) 
+            
+            if ( (shotX === randomX) && (shotУ === randomY )){
+               document.write("Ви потопили корабель!")
+               break
+            }
+            else document.write("Нажаль Ви невлучили.")
+         }
+
+
+         
+
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

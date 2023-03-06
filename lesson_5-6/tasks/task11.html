@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 11</h2>
+         <p>Знайти суму 5 непарних чисел, що знаходяться між заданими користувачем числами.</p>
+         <h5>Результат:</h5>
+         
+         <script>
+            // 0. Позначення відомих величин 
+            let result = 0
+
+            // 1. Введення необхідних дани
+            let userNamberMin = parseInt(prompt("Введіть початок проміжку"))
+            let userNamberMax = parseInt(prompt("Введіть кінець проміжку"))
+            
+            // 2. Обчислення виразів (пошук результату) 
+            for (let i = userNamberMin, j = 1; i <= userNamberMax, j <=10; i++, j++){
+               if ( i%2 !== 0)
+               result = result + i  
+            }
+
+            // 3. Виведення результату
+            document.write(`${result}`)
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

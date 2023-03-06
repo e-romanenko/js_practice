@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+   <body style="font-size: 22px;">
+      <h2>Задача 2</h2>
+         <p>
+            Створити 10 елементів для введення цін продуктів.
+         </p>
+         <h5>Результат:</h5>
+         <!--
+            План:
+            input на 10 продуктів 
+            <form action="#"><input type="text"></form>
+         -->
+
+         <script>
+            // 0. Позначення відомих величин 
+            const maxProduct = 10
+
+            // 1. Введення необхідних дани ззовні
+            // --------
+
+            // 2. Обчислення виразів (пошук результату) 
+            document.write(`<form action="#">`)
+            for (let p = 1; p <= maxProduct; p++) {
+            
+               // 3. Виведення результату
+               document.write(`Продукт № ${p} <input type="text"><br>`) 
+            }
+            document.write(`</form>`)
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>

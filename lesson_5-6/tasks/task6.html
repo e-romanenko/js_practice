@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 6</h2>
+         <p>
+            Вивести 3 таблиці з числами від 1 до 9, від 10 до 18, від 19 до 27 (по 3 рядки і 3 стовпці у кожній)
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            // 0. Позначення відомих величин
+            const tableNumber = 3
+            const rowNumber = 3
+            const columnNumber = 3
+            let count = 1
+
+            // 1. Введення необхідних дани
+
+            // 2. Обчислення виразів (пошук результату) та виведення результату
+            for (let t = 1; t <= tableNumber; t++){
+            document.write(`
+            <table border="2px;"">
+               <tbody><br>`) 
+            for (let r = 1; r <= rowNumber; r++) {
+               document.write(`<tr>`)
+               for (let c = 1; c <= columnNumber; c++, count++) {  
+               document.write(`<td>${count}</td>`)
+            }
+            document.write(`</tr>`)
+            }
+
+            document.write(`
+               </tbody>
+            </table> `)
+         }
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

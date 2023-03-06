@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 7</h2>
+         <p>
+            Вивести на екран N абзаців (N вводиться користувачем).
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            let N = parseInt(prompt("Введіть кількість абзаців"))
+            document.write(`Введене число = ${N}`)
+
+            for (let i = 1; i <= N; i++) {
+               document.write(`<h2>Заголовок ${i}</h2>`)
+               for (let j = 1; j <=i ; j++) {
+                  document.write(`<p>Розділ ${i}, параграф ${j}</p>`)
+               }
+               document.write(`<hr>`)
+            }
+
+            // document.write(`<h2>Заголовок ${N}</h2>`)
+            // for (let  i = 1; i <= N;  i++) {
+            //    document.write(`
+            //    <p>Розділ ${N}, параграф ${i}</p>`)
+            //    }  
+            // document.write(`<hr>`)
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

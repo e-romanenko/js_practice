@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 15</h2>
+         <p>
+            Користувача поступово вводить показники температури протягом року. <br>
+            Знайти середню температуру.
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            // 0. Позначення відомих величин 
+            let result
+
+            // 1. Введення необхідних дани створюємо цикл 
+            const numberMonths = parseInt(prompt("Введіть кіл-ть місяців, за які будете надавати показники","1"))
+            let sumTemperature = 0
+            for (let t = 1; t <= numberMonths; t++) {
+               const indicator =  parseInt(prompt(`Введіть температуру за ${t} місяць`))
+               if (!isFinite(indicator)) break
+               sumTemperature += indicator
+            }             
+            
+            // 2. Обчислення виразів (пошук результату) 
+            result = sumTemperature/numberMonths
+
+            // 3. Виведення результату
+            document.write(`Середня температура за вказаний період (${numberMonths} міс) = ${result} градусів`)
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

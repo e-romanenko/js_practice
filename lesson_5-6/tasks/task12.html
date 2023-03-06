@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 12</h2>
+   
+         <p>
+            Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. <br>
+            Вибір у кожній позиції вибирається як одне з чотирьох зображень. <br>
+            Вивести ці зображення і повідомити виграш користувача <br>
+            (три перших зображення 100 грн, три других – 200, <br>
+            три третіх – 500, три четвертих зображення – 1000грн). <br>
+            Використати цикли і switch (для вибору зображення за номером). <br>
+         </p>
+         <h5>Результат:</h5>
+         <!-- план 
+         створити рандом число від 1 до 4 
+         в циклі for 3 рази
+         записати кудись зберегти значення 
+         вивести якщо: 111 100 грн/ 222 200грн / 333 500грн/ 444 1000грн -->
+
+         <script>
+            //1. Створюємо цикил для пошуку трьох зображень 
+            let numResalt = ""
+            for (let i=0; i<3; i++){
+               let numImgRundom = 1 + Math.floor(Math.random()* 4)
+               document.write(`<img style="width:100px;" src="../img/${numImgRundom}.jpeg">`) 
+               numResalt = numResalt + String(numImgRundom) // numResalt += numberImg
+            }
+
+            //2. Використовуємо оператор вибору щоб вивести виграш користувача
+            let result
+            switch (numResalt) {
+               case "111": result ="Ви виграли 100грн"
+                  break;
+               case "222": result ="Ви виграли 200грн"
+                  break;
+               case "333": result ="Ви виграли 500грн"
+                  break;
+               case "444": result ="Ви виграли 1000грн"
+                  break;
+               default: result = "Спробуйте ще раз"
+                  break;
+            }
+
+            //3. Виводимо результат на сторінку 
+            document.write(` <br>${result}`)
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

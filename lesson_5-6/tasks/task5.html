@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 5</h2>
+         <p>
+            Вивести таблицю з числами від 1 до 9 ( 3 рядка і 3 стовпця)
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            // 0.  Позначення відомих величин
+            const rowNumber = 3
+            const columnNumber = 3
+
+            // 1. Введення необхідних дани ззовні
+            // --------
+
+            // 2. Обчислення виразів і виведення результату  
+         document.write(`
+            <table border="2px;"">
+               <tbody>`)
+            let  num = 1 
+            for (let r = 1; r <= rowNumber; r++) {
+               document.write(`<tr>`)
+               for (let c = 1; c <= columnNumber; c++, num++) {  
+               document.write(`<td>${num}</td>`)
+            }
+            document.write(`</tr>`)
+            }
+         document.write(`
+               </tbody>
+            </table> `)
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

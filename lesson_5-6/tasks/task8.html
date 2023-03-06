@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 8</h2>
+         <p>
+            Користувач загадує число. 
+            За 3 спроби комп’ютер намагається вгадати число користувача (використати confirm).
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            // 0. Позначення відомих величин 
+            let result
+
+            // 1. Введення необхідних дани
+            const userNamber = parseInt(prompt("Загадайте число від 1 до 5"))
+         
+            // 2. Обчислення виразів (пошук результату) 
+            for (i = 1; i <= 3 ; i++){
+               const randomNamber = 1 + Math.floor(Math.random() * 5)
+               if ( confirm (` ${i} спроба: це число ${randomNamber}?`)){
+               result = `Я розумничок вгадав число, воно дорівнює ${randomNamber}`
+               break
+            }
+               else 
+               result = " Упс, щось я не вгадав."
+            }
+
+            // 3. Виведення результату
+            document.write(`${result}`)
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

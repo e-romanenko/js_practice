@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 14</h2>
+         <p>
+            Каса. Користувачу повідомляють суму, яку йому треба сплатити. <br>
+            Користувач поступово вводить суму грошей до тих пір, <br>
+            поки суми не буде достатньо для оплати товарів <br>
+            (кожного разу користувачу повідомляють, яку ще суму потрібно ввести). <br>
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+         // Рандомно знаходимо суму для оплати 
+         const paymentSum = 1 + Math.floor(Math.random() * 100)
+
+         let remainder = paymentSum
+         let counter = 1
+
+         // Створюємо цикл для поступового введення оплати користувачем
+            do{
+               const userPayment = parseInt(prompt(`Сума до сплати ${remainder}грн. Внесіть ${counter}-й платіж`, "1"))   
+               remainder = remainder - userPayment
+               document.write(`${counter}-й платіж = ${userPayment} грн.<br>`)
+               counter++
+            }
+            while(remainder !== 0 ) // цикл буде повторюватись поки залишок не дорівнюватиме 0
+
+         // Виводимо результат для користувача на екран 
+            document.write(`
+            Сума до сплати становила: ${paymentSum} грн.<br>
+            Ви сплатили рахунок за ${counter-1} рази.
+            `)
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>
