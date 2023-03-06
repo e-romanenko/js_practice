@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <h2>Задача 0</h2>
+         <p>
+            Створити функцію, яка за номером місяця повертає пору року, до якої відноситься цей місяць.
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+         
+            // 1. Введення необхідних дани
+            const userNumMonth = parseInt(prompt("Введіть номер місяця від 1 до 12"))
+            
+            // 2. Обчислення виразів (пошук результату) 
+
+            // створення функції для пошуку пори року
+            function getSeason (month) {
+               let result
+               switch (userNumMonth) {
+                  case 12:
+                  case 1:
+                  case 2:
+                  result = "Зима"
+                     break;
+                  case 3:
+                  case 4:
+                  case 5:
+                  result = "Весна"
+                     break;
+                  case 6:
+                  case 7:
+                  case 8:
+                  result = "Літо"
+                     break;
+                  case 9:
+                  case 10:
+                  case 11:
+                  result = "Осінь"
+                     break;
+                  default: result = "Ви ввели некоректне значення."
+                     break;
+               }
+               return result
+            }
+            // виклик функції 
+            let answerForUser = getSeason(userNumMonth)
+
+            // 3. Виведення результату
+            document.write(`Пора року ${answerForUser}`)
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

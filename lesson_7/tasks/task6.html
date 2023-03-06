@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <h2>Задача 6</h2>
+         <p>
+            Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців <br>
+            (таблиця заповнюється заданим фіксованим повідомленням).
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            //1 Cтворення функції
+            function createTable(row, column, text) {
+               document.write(`
+               <table border="2px;"">
+                  <tbody>`)
+               //цикл створення кіл-ті рядків
+               for (let r = 1; r <= row; r++) {
+                  document.write(`<tr>`)
+               //цикл стовреня кіль-ті стовпчиків
+                  for (let c = 1; c <= column; c++ ) {  
+                     document.write(`<td>${text}</td>`)
+                  }
+                  document.write(`</tr>`)
+               }
+               document.write(`
+                  </tbody>
+               </table> `)
+            }
+
+            //2. Oтримання даних від користувача 
+            const userRowNum= parseInt(prompt("Введіть кількість рядків","1"))
+            const userColumnNum = parseInt(prompt("Введіть кількість стовпців","1"))
+            const userText = prompt("Введіть довільний тескт")
+
+            //3. Викликаємо функцію і таким чином виводимо результат роботи функції на екран
+            const answerForUser = createTable(userRowNum, userColumnNum, userText)
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

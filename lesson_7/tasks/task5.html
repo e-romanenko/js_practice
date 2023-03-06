@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <h2>Задача 5</h2>
+         <p>
+            Створити окремі функції, які переводять: <br>
+            Сантиметри у дюйми;<br>
+            Кілограми у фунти;<br>
+            Кілометри у милі.<br>
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            // 1. Введення необхідних дани
+            const userValueCentimetrs = parseFloat(prompt("Введіть кіл-ть сантиметрів","1"))
+            const userValueKilograms  = parseFloat(prompt("Введіть кіл-ть кілограм","1"))
+            const userValueKilometers  = parseFloat(prompt("Введіть кіл-ть кілометрів","1"))
+            
+            // 2. Обчислення виразів (пошук результату) 
+
+            //функція для переведення сантиметрів у дюйми
+            function calcLenghtCnDm (centimetrs) {
+               return centimetrs * 0.39370
+            }
+            const inchesResalt = calcLenghtCnDm(userValueCentimetrs)
+
+
+            //функція для переведення кілограмів у фунти
+            function calcWeightKgFn (kilograms) {
+               return kilograms * 2.2046
+            }
+            const poundResalt = calcWeightKgFn(userValueKilograms)
+
+
+            //функція для переведення кілометрів у милі
+            function calcLenghtKmMl (kilometers) {
+               return kilometers / 1.609
+            }
+            const milesResalt = calcLenghtKmMl(userValueKilometers)
+
+
+            // 3. Виведення результату
+            document.write(`
+            ${userValueCentimetrs} сантиметрів = ${inchesResalt.toFixed(2)} дюймів <br>
+            ${userValueKilograms} кілограм = ${poundResalt.toFixed(2)} фунтів <br>
+            ${userValueKilometers} кілометрів = ${milesResalt.toFixed(2)} миль 
+            `)
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

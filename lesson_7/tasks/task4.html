@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <h2>Задача 4</h2>
+         <p>
+            Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: <br>
+            кількість парних, кількість додатних, кількість більших за 100.
+         </p>
+         <h5>Результат:</h5>
+         
+         <script> 
+
+            //1. Введення даних користувачем 
+               const num1 = parseFloat(prompt("Введіть перше число","1")) 
+               const num2 = parseFloat(prompt("Введіть друге число","2")) 
+               const num3 = parseFloat(prompt("Введіть третє число","3"))  
+
+            //2. Обчислення виразів (пошук результату)
+            // стоврення глобальної функції для обчислення 
+            function getResaltMathCalcul() {
+
+               // функція визначення кількікості парних чисел
+               function   getEvenNum(){
+                  let counterEvenNum = 0 
+                  for (let i = 0; i < 3; i++) {
+                     if (arguments[i]%2 === 0)
+                     counterEvenNum = counterEvenNum + 1
+                  }
+                  return counterEvenNum
+               }
+
+               // функція визначення кількікості додатних чисел
+               function  getPositivNum (){
+                  let counterPositivNum = 0
+                  for (let i = 0; i < 3; i++) {
+                     if (arguments[i] > 0)
+                     counterPositivNum = counterPositivNum + 1
+                  }
+                  return counterPositivNum
+               }
+
+               // функція визначення кількікості чисел більше за 100
+               function  getMoreThan100 (){
+                  let counterMoreThan100 = 0
+                  for (let i = 0; i < 3; i++) {
+                     if (arguments[i] > 100)
+                     counterMoreThan100 = counterMoreThan100 + 1
+                  }
+                  return counterMoreThan100
+               }
+
+               // виклик функції 
+               const resaltEvenNum =getEvenNum(num1, num2, num3)
+               const resaltPositivNum = getPositivNum(num1, num2, num3)
+               const resaltMoreThan100 = getMoreThan100(num1, num2, num3)
+
+               // повернемо при виконанні глобальної функції  обчислення
+               return document.write(`
+               парних чисел: ${resaltEvenNum} шт <br>
+               додатніх чисел: ${resaltPositivNum} шт <br>
+               числа більше за 100: ${resaltMoreThan100} шт  <br>
+               `)
+            }
+
+            //3. Виклик глобальної функції
+            const resaltMathCalcul = getResaltMathCalcul()
+
+            
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

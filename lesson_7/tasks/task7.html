@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <h2>Задача 7</h2>
+         <p>
+            Створити функцію, яка випадковим чином виводить на екран одне із 4 зображень <br>
+            (шляхи до зображень передаються у функцію)
+         </p>
+         <h5>Результат:</h5>
+
+         <script>
+            // Створюємо функцію
+            function showImg () {
+               const randomImg = 1 + Math.floor(Math.random() * 4)
+               return document.write(`<img style="width:100px;" src="../img/${randomImg}.jpeg">`)
+            }
+
+            // Викликаємо функцію
+            const resaltForUse = showImg ()
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

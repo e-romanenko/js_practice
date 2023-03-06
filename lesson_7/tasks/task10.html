@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <h2>Задача 10</h2>
+         <p>
+            Дано покази температур (довільна кількість). <br>
+            Розробити функцію, яка дозволить знайти середнє значення для додатних показів температури. 
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            // 1. Створення функції 
+            function getAverageValueTemperature() {
+               let counter = 0
+               let sum = 0
+               for (let i = 0; i< arguments.length; i++) {
+                  if (arguments[i] > 0){
+                  counter++
+                  sum = sum + arguments[i]
+                  }
+               } 
+            return sum / counter
+            }
+
+            // 2. Виклик функції 
+            const answerForUser = getAverageValueTemperature(10, 20, 30, 40)
+
+            // 3. Виведення результату
+            document.write(`
+            Середня температура = ${answerForUser.toFixed(0)} градусів`)
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+   <body>
+      <h2>Задача 3</h2>
+         <p>
+            Створити окремі функції, які для 4 чисел знаходять: <br>
+               1)суму; <br>
+               2)добуток; <br>
+               3)середнє арифметичне; <br>
+               4)мінімальне значення. 
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+
+            // 1. Введення необхідних дани
+            const num1 = parseFloat(prompt("Введіть перше число","1"))
+            const num2 = parseFloat(prompt("Введіть друге число","2"))
+            const num3 = parseFloat(prompt("Введіть третє число","3"))
+            const num4 = parseFloat(prompt("Введіть четверте число","4"))
+                  
+            // 2. Обчислення виразів (пошук результату) 
+            
+            //функція знаходження суми
+            function getSum(a, b, c, d) {
+               let resultSum = a + b + c + d
+               return resultSum
+            }
+
+            //функція знаходження добутку
+            function getProduct(a, b, c, d) {
+               let resultProduct = a * b * c * d
+               return resultProduct
+            }
+
+            //функція знаходження середнього арифметичного
+            function getAverage(a, b, c, d) {
+               let resultAverage = (a + b + c + d) / 4
+               return resultAverage
+            }
+
+            //функція знаходження мінімального значення
+            function getMinNum(a, b, c, d) {
+               let min
+               min = a < b ? a : b
+               min = c < min ? c : min
+               min = d < min ? d : min
+               return min
+            }
+
+            // Виклик функцій 
+            let answerForUserSum = getSum(num1, num2, num3, num4)
+            let answerForUserProduct = getProduct(num1, num2, num3, num4)
+            let answerForUserAverage = getAverage(num1, num2, num3, num4)
+            let answerForUserMin = getMinNum(num1, num2, num3, num4)
+
+
+            // 3. Виведення результату
+            document.write(`
+            Ви ввели числа ${num1}, ${num2}, ${num3}, ${num4} <br>
+            Сума чисел  = ${answerForUserSum} <br>
+            Добуток чисел = ${answerForUserProduct} <br>
+            Середнє арифметичне значення чисел  = ${answerForUserAverage}<br>
+            Min значення з групи чисел = ${answerForUserMin}
+            `) 
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>
+
