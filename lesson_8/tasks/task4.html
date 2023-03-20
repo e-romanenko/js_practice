@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 4</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 4</h2>
+         <p>
+            Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які : <br>
+               •	починаються на букву «А»; <br>
+               •	перша і остання літери співпадають; <br>
+               •	складаються з більше ніш 5 символів;
+         </p>
+         
+         <script>
+            // Дано масив
+            const arrNumAvto = ['AB4567', 'FY5678', 'AO6789', 'NO7N', 'DK5678D', 'N678H', 'AG890', 'G569']
+            console.log(arrNumAvto)
+
+            //кількість номерів, які починаються на букву «А»
+            let sumNumStartA = arrNumAvto.reduce((prevSum, element, index)=> 
+               element[0] === 'A' ? prevSum+1 : prevSum
+            , 0)
+            console.log(`Кількість номерів які починаються на А: ${sumNumStartA}`)
+            document.write(`Кількість номерів які починаються на А: ${sumNumStartA}`)
+
+            //кількість номерів, які перша і остання літери співпадають
+            let sumNumStartEnd = arrNumAvto.reduce((prevSum, element, index)=>
+               element[0] === element.at(-1) ? prevSum+1 : prevSum
+            , 0)
+            console.log(`Кількість номерів які мають першу і останню літери однакові: ${sumNumStartEnd}`)
+            document.write (`Кількість номерів які мають першу і останню літери однакові: ${sumNumStartEnd}`)
+
+            //кількість номерів, які складаються з більше ніш 5 символів
+            let sumNumMore5 = arrNumAvto.reduce((prevSum, element, index)=>
+               element.length >= 5 ? prevSum+1 : prevSum
+            , 0)
+            console.log(`Кількість номерів, які складаються з більше ніш 5 символів: ${sumNumMore5}`)
+            document.write (`Кількість номерів, які складаються з більше ніш 5 символів: ${sumNumMore5}`)
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

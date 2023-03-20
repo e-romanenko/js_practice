@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 7</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 7</h2>
+         <p>
+            Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:<br>
+            за весь рік; <br>
+            у першій половині року;<br>
+            у другій половині року; <br>
+            за літо; <br>
+            за ІІ квартал; <br>
+            за парні місяці (з парними номерами); <br>
+            за місяці, які є початковими у сезоні (весна, літо, осінь, зима).  
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+         // Створюємо масив і заповнюємо його    
+         let paymentArray = []
+         for (let i = 0; i < 12; i++) {
+            paymentArray [i] = 1 + Math.floor(Math.random() * (10-1+1))
+         }
+         document.write(`${paymentArray} <br> <br>
+         Сумарна кількість грошей: <br>`)
+
+         function calcSum(arrPayment, startPeriod, endPeriod) {
+            let sumPeriod = 0
+            for (let month = startPeriod -1; month < endPeriod-1; month++) {
+               sumPeriod = sumPeriod + arrPayment[month]
+            }
+            return sumPeriod
+         }
+
+         const sumYear = calcSum(paymentArray,1,12)
+         const sumFistHalfOfYear = calcSum(paymentArray,1,6)
+         const sumSecondHalfOfYear = calcSum(paymentArray,7,12)
+         const sumSummer = calcSum(paymentArray,6,8)
+         const secondQuater = calcSum(paymentArray,4,6)
+
+         document.write(`
+            за весь рік = ${sumYear} грн.; <br>
+            у першій половині року= ${sumFistHalfOfYear} грн.;<br>
+            у другій половині року= ${sumSecondHalfOfYear} грн.; <br>
+            за літо= ${sumSummer} грн.; <br>
+            за ІІ квартал = ${secondQuater} грн.; <br>
+         `)
+
+
+         //Цикл для визначення суми за парні місяці
+         let EvenMonthsPaymentArray = paymentArray.filter( (elements,index) => index%2 !== 0  )
+         document.write(`${EvenMonthsPaymentArray} = `)
+         let sumEvenMonths = 0
+         for (let i = 0; i < EvenMonthsPaymentArray.length; i++) {
+            sumEvenMonths = sumEvenMonths + EvenMonthsPaymentArray[i]
+         }
+         document.write(` за парні місяці = ${sumEvenMonths} грн. <br>`)
+
+         // Цикл для визначення суми  за місяці, які є початковими у сезоні
+         let firstMonthSeasonPaymentArray = paymentArray.filter( (elements,index) => (index+1)%3 === 0  )
+         document.write(`${firstMonthSeasonPaymentArray} = `)
+         let firstMonthSeaso = 0
+         for (let i = 0; i < firstMonthSeasonPaymentArray.length; i++) {
+            firstMonthSeaso = firstMonthSeaso + firstMonthSeasonPaymentArray[i]
+         }
+         document.write(` за місяці, які є початковими у сезоні = ${firstMonthSeaso} грн. <br>`)
+
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

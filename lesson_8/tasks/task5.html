@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 5</title>
+</head>
+   <body style="font-size: 22px;">
+      <h2>Задача 5</h2>
+         <p>
+            Дано послідовність оцінок учня. Підрахувати кількість:<br>
+            1)	двійок<br>
+            2)	кількість хороших оцінок (добре, відмінно);<br>
+            3)	кількість оцінок, які нижче середнього.
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            // Створюємо масив 
+            let ratingStudent = []
+            // Заповнюємо масив рандомними оцінками 
+            let quantityRating = parseInt(prompt("Введіть кількість оцінок учня","10"))
+            for (let i = 0; i < quantityRating; i++) {
+               ratingStudent[i] = 2 + Math.floor(Math.random() * (5-2+1))
+            }
+            document.write(`Оцінки учня: ${ratingStudent} <br>`)
+
+            function calcQuantityScorsBadly(arrScors) {
+               let counterNegativeRating = 0
+               for (let i = 0; i < arrScors.length; i++) {
+                  if( arrScors [i] === 2) counterNegativeRating ++  
+               }
+               return counterNegativeRating
+            }
+            document.write(`Кількість двійок у студента = ${calcQuantityScorsBadly(ratingStudent)}<br>`)
+
+
+            function calcQuantityScorsGoog(arrScors) {
+               let counterGoodRating = 0
+               for (let i = 0; i < arrScors.length; i++) {
+                  if( arrScors [i] === 4 || ratingStudent [i] ===5 )
+                     counterGoodRating ++
+               } 
+               return counterGoodRating
+            }
+            document.write(`Кількість хороших оцінок у студента = ${calcQuantityScorsGoog(ratingStudent)}<br>`)
+            
+            // Визначення середнього балу учня 
+            let sumRating = 0 
+            for (let i = 0; i < quantityRating; i++) {
+               sumRating = sumRating + ratingStudent [i]    
+            }
+            let averageRating = sumRating / quantityRating
+
+            let counterMoreAverageRating = 0
+            for (let i = 0; i < ratingStudent.length; i++) {
+               if (ratingStudent [i] < averageRating)
+                  counterMoreAverageRating++
+            } 
+            document.write(`Кількість оцінок у студента нижче середнього  = ${counterMoreAverageRating++}`)
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>

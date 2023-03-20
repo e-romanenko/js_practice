@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 8</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 8</h2>
+         <p>
+            Дано одновимірний масив, у якому зберігається певна виграшна сума <br>
+            (елементи заповнюються випадковим чином значеннями від -500 до 500). <br>
+            Надаючи користувачу можливість вибирати номери елементів  (поки він не відмовиться). <br>
+            Знаходити сумарний виграш.
+         </p>
+         <h5>Результат:</h5>
+         <script>
+         // Функція для заповнення масиву
+         function getRandomArray(arrLength,minV, maxV) {
+            let arr = []
+            for (let i = 0; i < arrLength; i++) {
+               const rundomNum = minV + Math.floor(Math.random() * (maxV - (minV) + 1))
+               arr.push(rundomNum) 
+            }
+            return arr
+         }
+
+         const userArrLength = parseInt(prompt('Введіть кількість номерів лотереї','10'))
+         // Викликаємо функцію, заповнюємо масив 
+         const arrWin = getRandomArray(userArrLength,-500,500)
+         console.log(arrWin)
+
+         // Цикил для підрахування виграшу
+         let sumWin = 0
+         for (let i = 1; ; i++) {
+            const userNumElement = parseInt(prompt('Введіть номер елемент','1'))
+            if (!isFinite(userNumElement))
+            break 
+            sumWin += arrWin[userNumElement-1]
+            alert(`Ваш виграш: ${sumWin}`)   
+         }
+         
+         // Вивід результату після закінчення гри
+         let resalt
+         if (sumWin > 0)  resalt = `Ваш виграш складає ${sumWin} грн`
+         else if (sumWin = 0) resalt =  `Ви вийшли в 0`
+         else resalt = `Ви програли казино суму ${sumWin} грн`
+
+         document.write (`${resalt}`)
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

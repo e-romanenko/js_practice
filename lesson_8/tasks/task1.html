@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 1</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 1</h2>
+         <p>
+            Дано масив, який містить оцінки з К предметів. <br>
+            Знайти середній бал і з’ясувати до якої категорії він відноситься <br>
+            двійочник (має хоча би одну двійку), <br>
+            трійочник(є хоча би одна трійка)),<br> 
+            хорошист (оцінки добре і відмінно). <br>
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+         // Створення масиву
+         let gradesSubjects = []
+
+         // Отримання від користувача даних
+         const K = parseInt(prompt("Введіть кількість предметів"))   
+         
+         // Цикл для заповнення масиву рандомними оцінками
+         for (let i = 0; i < K; i++) {
+            gradesSubjects[i] = 2 + Math.floor(Math.random() * (5-2+1))
+         }
+
+         //Функція для аналізу масиву і пошуку середнього арифметичного 
+         function getArithmeticMean(grades) {
+            let quantityGrades = 0
+            let sumGrades = 0
+            for (let i = 0; i < grades.length; i++) {
+               sumGrades = sumGrades + grades[i]
+               quantityGrades++
+            }
+            return sumGrades / quantityGrades
+         }
+
+         //Функція для пошуку категорії 
+         function getCategory(grades) {
+            let minGrades = grades[0]
+            for (let i = 0; i < K; i++) {
+               if (grades[i] < minGrades)  minGrades = grades[i]
+            } 
+            switch (minGrades) {
+               case 2:
+                  resalt = "двійочник"
+                  break;
+               case 3:
+                  resalt = "трійочник"
+                  break;
+               default: 
+                  resalt = "хорошист"
+                  break;
+            }
+            return resalt
+         }
+         
+         // Викликаємо функції
+         let averageScore = getArithmeticMean(gradesSubjects)
+         let studentCategory = getCategory(gradesSubjects)
+
+         // Виводимо результат на сторінку
+         document.write(`
+         Оцінки учня: ${gradesSubjects} <br>
+         Середній бал = ${averageScore.toFixed(1)} - ${studentCategory}`)
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

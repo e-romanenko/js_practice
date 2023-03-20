@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 9</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 9</h2>
+         <p>
+            Морський бій. <br>
+            Користувач вводить кількість клітинок одновимірного масиву та кількість одиночних кораблів. <br>
+            Комп’ютер довільно розміщує ці одиночні кораблі у масиві по один у клітинці <br>
+            (якщо у клітинці 0, то клітинка пуста, якщо 1 – то це означає, що там є корабель. <br> 
+            Користувач вводить номер клітинки, куди стріляє. <br>
+            Гра продовжується до тих пір, поки не будуть потоплені усі кораблі.
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            // Беремо данні у користувача
+            const userNumLenghtArr = parseInt(prompt('Введіть довжину поля','10'))
+            let userNumShip = parseInt(prompt('Введіть кіл-ть кораблів','3'))
+
+            let maxV = userNumLenghtArr-1
+            const minV = 0
+
+            // Створюємо масив 'море'
+            let arrSea = new Array (maxV)
+            arrSea.fill(0)
+
+            // Заповнюємо 'море кораблями'
+            for (let i = 0; i < userNumShip; i++) {
+               const indexShip = minV + Math.floor(Math.random() * (maxV - minV + 1))   
+               arrSea[indexShip] = 1
+            }
+
+            // Цикл для гри користувача
+            do {
+               const userShot = parseInt(prompt('Введіть постріл','1'))
+               if (arrSea[userShot]  === 1){
+                  userNumShip --
+                  alert('Попали!')
+                  arrSea[userShot] = 0 
+               }
+               else alert('Промазали!')
+            } while (userNumShip > 0)
+
+            document.write('Вітаю! Ви перемогли :)')
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

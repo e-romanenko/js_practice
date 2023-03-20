@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 6</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 6</h2>
+         <p>
+            Дано послідовність цін товарів та назв (у окремих масивах). <br>
+            Вивести на екран ті, які може собі дозволити користувач (кількість грошей задається).<br>
+            let productsPrices = [1000, 20, 31]<br>
+            let productsTitles = [‘cheese’, ‘juice’, ‘bread’]
+
+         </p>
+         
+         <script>
+            // Дано масиви
+            let productsPrices = [1000, 20, 31, 56, 678, 60, 90, 70]
+            let productsTitles = ['cheese', 'juice', 'bread','butter','oil', 'tomato', 'strawberry', 'water']
+
+            // Отримуємо дані від користувача
+            const userMoney = parseInt(prompt('Введіть суму грошей яку маєте','50'))
+            
+            // Створюємо новий масив і цикил для знаходження результату
+            let newProductsTitles = []
+            for (let i = 0; i < productsPrices.length; i++) {
+               if (productsPrices[i] <= userMoney)
+               newProductsTitles.push(productsTitles[i])
+            }
+            console.log(newProductsTitles)
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 2</title>
+</head>
+   <body style="font-size: 22px;">
+      <h2>Задача 2</h2>
+         <p>
+            Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. Вивести на екран: <br>
+            номери днів, протягом яких кількість відвідувачів була меншою за 20; <br>
+            номери днів, коли кількість відвідувачів була мінімальною; <br>
+            номери днів, коли кількість відвідувачів була максимальною; <br>
+            загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних. 
+         </p>
+         <h5>Результат:</h5>
+
+         <script>
+            // Створили масив
+            let numClient = []
+            for (let i = 0; i < 7; i++) {
+                numClient[i] = 1 + Math.floor(Math.random() * 100)
+            }
+            document.write(`${numClient} <br> `)
+
+            // Дні менше за 20 клієнтів
+            let daysLessTwentyClient = []
+            numClient.forEach((element,index) => {
+               if (element < 20)
+               daysLessTwentyClient.push(index+1) 
+            })
+            document.write(`номери днів, протягом яких кількість відвідувачів була меншою за 20: ${daysLessTwentyClient} <br> `)
+
+            // Днь з максимальною кількістю клієнтів 
+            let maxClient = numClient[0]
+            for (let i = 0; i < numClient.length; i++) {
+               if(numClient[i] > maxClient) 
+                  maxClient = numClient[i];
+            }
+            numClient.forEach((element, index) =>{
+               if (element === maxClient)
+               document.write(`день, коли кількість відвідувачів була максимальною: ${index+1}-й<br>`)
+            })
+            
+            
+            // Днь з мінімальною кількістю клієнтів 
+            let minClient = numClient[0]
+            for (let i = 0; i < numClient.length; i++) {
+               if(numClient[i] < minClient) 
+                  minClient = numClient[i];
+            }
+            numClient.forEach((element, index) =>{
+               if (element === minClient)
+               document.write(`день, коли кількість відвідувачів була мінімальною: ${index+1}-й <br>`)
+            })
+            
+
+            //   Сума клієнтів в робочі і вихідні дні
+            function calcSumClient(numClient, startPeriod, endPeriod) {
+               sum = 0
+               for (let i = startPeriod-1; i < endPeriod; i++) {
+                  sum = sum + numClient[i]
+               }
+               return sum
+            }
+            const sumWorkingDays =calcSumClient(numClient,1,5)
+            const sumWeekend =calcSumClient(numClient,6,7)
+
+            document.write(`
+            загальну кількість клієнтів у робочі дні: ${sumWorkingDays} <br>
+            загальну кількість клієнтів на вихідних: ${sumWeekend}
+            `)
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>
