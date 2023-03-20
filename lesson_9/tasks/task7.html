@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 7</title>
+</head>
+<body>
+   <h2>Задача 7</h2>
+         <p>
+         Дано масив цін. <br>
+         Змінити цей масив так, що на ціни товарів, які більші за 100 грн. дати 30% знижки.
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            const userNumElements = parseInt(prompt("Введіть кількість елементів масиву","10"))
+
+            const array = []
+            for (let i = 0; i < userNumElements; i++) {
+               randomNum = 1 + Math.floor(Math.random() * 200)
+               array[i] = randomNum
+            }
+            document.write(`Старі ціні: ${array}<br>`) 
+            console.log(array)
+
+            const maxPrice = 100
+            const discount = 30/ 100
+            array.forEach((element,index,baseArrRef) => { 
+               if(element > maxPrice)
+               baseArrRef[index] = element - (element * discount)
+            })
+            document.write(`Новi ціни: ${array}<br>`)
+            console.log(array)
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

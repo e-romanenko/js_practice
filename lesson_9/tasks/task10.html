@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 10</title>
+</head>
+<body>
+   <h2>Задача 10</h2>
+         <p>
+         Дано масив цін у грн. Податок складає 20%. <br>
+         Сформувати масив, який буде містити величину сплаченого податку у грн.  
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            const userNumElements = parseInt(prompt("Введіть кількість елементів масиву","10"))
+
+            const arrayPrice = []
+            for (let i = 0; i < userNumElements; i++) {
+               randomNum = 1 + Math.floor(Math.random() * 100)
+               arrayPrice[i] = randomNum
+            }
+            console.log(arrayPrice)
+            document.write(`Ціни товарів,грн: ${arrayPrice}<br>`) 
+
+            const taxe = 20/100
+            const arrayTaxes =  arrayPrice.map(price =>  Math.round(price * taxe)) 
+            //.toFixed(1) я думала використати цю властивість. Але toFixed переводить Число в рядок.
+            // які є ще варіанти щоб зменшити кількість чисел після коми, 
+            // тільки щоб не перетворювало в string? (Буду вдячна за відповідь)
+
+            console.log(arrayTaxes)
+            document.write(`Податок,грн: ${arrayTaxes}<br>`)
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

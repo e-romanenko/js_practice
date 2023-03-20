@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 5</title>
+</head>
+<body>
+   <h2>Задача 5</h2>
+         <p>
+         Дано масив елементів. Знайти добуток додатних елементів <br>
+         використати цикл for..of
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            const userNumElements = parseInt(prompt("Введіть кількість елементів масиву","10"))
+
+            const array = []
+            for (let i = 0; i < userNumElements; i++) {
+               randomNum = -10 + Math.floor(Math.random() * (10-(-10)+1))
+               array[i] = randomNum
+            }
+            document.write(`Дано масив: ${array}<br>`)
+            console.log(array)
+
+            let multiplication = 1
+            for (const element of array) {
+               if(element > 0)
+               multiplication = multiplication * element
+            }
+            document.write(`Добуток додатних елементів = ${multiplication}`)
+            console.log(multiplication)
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

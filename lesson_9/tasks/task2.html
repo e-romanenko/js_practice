@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 2</title>
+</head>
+   <body>
+      <h2>Задача 2</h2>
+         <p>
+            Користувач вводить кількість елементів. <br>
+            Створити масив, у якому перша половина заповнена 1-цями, а друга заповнена 7-ками.
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            const userNumElements = parseInt(prompt("Введіть кількість елементів масиву","10"))
+            let halfUserNum = Math.floor(userNumElements / 2)
+
+            let array = new Array(userNumElements)
+            array.fill(1, 0, halfUserNum)
+            array.fill(7,halfUserNum)
+
+            document.write(array)
+            console.log(array)
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>

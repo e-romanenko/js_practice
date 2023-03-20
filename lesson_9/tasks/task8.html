@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 8</title>
+</head>
+<body>
+   <h2>Задача 8</h2>
+         <p>
+         Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»   
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+         const arrNumAvto = ['AB4576', 'GA5678', 'AE7890', 'MA2341', 'KO6785', 'RE2345', 'AN8904']
+         document.write(`Масив номерів авто: ${arrNumAvto} <br>`) 
+         console.log(arrNumAvto)
+
+         const newArrNumAuto = arrNumAvto.filter((num) => num[0] === 'A') 
+         document.write(`Масив номерів авто, які починаються на А: ${newArrNumAuto}`)
+         console.log(newArrNumAuto)
+         
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>
