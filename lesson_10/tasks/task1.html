@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 1</title>
+</head>
+   <body>
+      <h2>Задача</h2>
+         <p>
+            Задача. Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000)<br>
+            1)Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.<br>
+            2)Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.<br>
+            3)Сформувати список з тих цін, які більші за попереднє значення<br>
+            4)Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального<br>
+            5)Підрахувати кількість змін цін<br>
+            6)Визначити, чи є ціна, що менше 1000<br>
+            7)Визначати, чи усі ціни більше за 1000<br>
+            8)Підрахувати кількість цін, що більше за 1000<br>
+            9)Підрахувати суму цін, що більше за 1000<br>
+            10)Знайти першу ціну, що більше за 1000<br>
+            11)Знайти індекс першої ціни, що більше за 1000<br>
+            12)Знайти останню ціну, що більше за 1000<br>
+            13)Знайти індекс останньої ціни, що більше за 1000
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+         // Запитуємо у користувача деякий період
+         const userQuantityPeriod = parseInt(prompt("Введіть період", "12"))
+
+         // Функція для створення  масиву з рандомними цінами на цінні папери за заданий період
+         function getPricesValuableParers(period) {
+            let priceList =[]
+            for (let i = 0; i < period; i++) {
+               const randomPrice = 1 + Math.floor(Math.random() * 10000)
+               priceList [i] = randomPrice
+            }
+            return priceList
+         }   
+         const priceList = getPricesValuableParers(userQuantityPeriod)
+         console.log(`масив цін: ${priceList}`)
+
+         // 1. Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
+         const newPriceListMore1000 = priceList.filter(price => price>1000)
+         console.log(`1) масив цін > 1000: ${newPriceListMore1000}`)
+
+         // 2. Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+         let newPriceListMore1000Num = []
+         for (let i = 0; i < priceList.length; i++) {
+            if (priceList[i] > 1000)
+            newPriceListMore1000Num.push(i)
+         }
+         console.log(`2) масив номерів цін > 1000: ${newPriceListMore1000Num}`)
+
+         //  3. Сформувати список з тих цін, які більші за попереднє значення (Цикл)
+         const newPriceListMorePrevious = []
+         for (let i = 1; i < priceList.length; i++) {
+            if (priceList[i] > priceList[i-1])
+            newPriceListMorePrevious.push(priceList[i])
+         }
+         console.log(`3) більше за попереднє: ${newPriceListMorePrevious}`)
+
+         // const newPriceListMorePrevious = priceList.filter((price,index) => {
+         //    if (price > priceList[index-1]) return price
+         // }) - Так не вірно вихід за межі допустимих індексів
+
+         // 4. Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимальногo
+         const maxPrice = priceList.reduce((prevMax,price) => 
+         price > prevMax ? price : prevMax , 0)
+         console.log(`max = ${maxPrice}`)
+
+         const newPriceListPercentageRelativelyMaxPrice = priceList.map(
+            price => Math.ceil(price / maxPrice * 100)
+         )
+         console.log(`4) % від max: ${newPriceListPercentageRelativelyMaxPrice}`)
+         
+         // 5. Підрахувати кількість змін цін
+         let counter = 0
+         const quantityСhangePrice = priceList.reduce((prevSum,price) => {
+            price !== prevSum ?  counter+1 : counter
+         })
+         console.log(`5) кіл-ть змін суми: ${counter}`)
+
+         // 6. Визначити, чи є ціна, що менше 1000
+         const resaltIsThereLessThan1000 = priceList.some(price => price < 1000)
+         console.log(`6) чи є ціна, що < 1000: ${resaltIsThereLessThan1000}`)
+
+         // 7. Визначати, чи усі ціни більше за 1000
+         const resaltIsThereMoreThan1000 = priceList.every(price => price > 1000)
+         console.log(`7) чи усі ціна > 1000: ${resaltIsThereMoreThan1000}`)
+
+         // 8. Підрахувати кількість цін, що більше за 1000
+         const quantityPriceMore1000 = priceList.reduce((prevNum,price) =>
+            price > 1000 ? prevNum+1 : prevNum
+         )
+         console.log(`8) кіл-ть цін > 1000: ${quantityPriceMore1000}`)
+
+         // 9. Підрахувати суму цін, що більше за 1000
+         const sumPriceMore1000 = priceList.reduce((prevSum,price) => {
+            if(price > 1000) return prevSum + price
+            else return prevSum
+         })
+         console.log(`9) cума цін > 1000: ${sumPriceMore1000}`)
+
+         // 10. Знайти першу ціну, що більше за 1000
+         const firstPriceMore1000 = priceList.find(price => price >1000)
+         console.log(`10) перша ціна > 1000: ${firstPriceMore1000}`)
+
+         // 11. Знайти індекс першої ціни, що більше за 1000
+         const indexFirstPriceMore1000 = priceList.findIndex( (price,index) => price >1000)
+         console.log(`11) індекс першої ціни > 1000: ${indexFirstPriceMore1000}`)
+
+         // 12. Знайти останню ціну, що більше за 1000
+         const lastPriceMore1000 = priceList.findLast ( (price,index) => price >1000)
+         console.log(`12) остання ціна > 1000: ${lastPriceMore1000}`)
+
+         // 13. Знайти індекс останньої ціни, що більше за 1000
+         const indexLastPriceMore1000 = priceList.findLastIndex( (price,index) => price >1000)
+         console.log(`13) індекс останньої ціни > 1000: ${indexLastPriceMore1000}`)
+         
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>
