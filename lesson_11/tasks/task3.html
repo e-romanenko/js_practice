@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 3</title>
+</head>
+   <body>
+      <h2>Задача 3</h2>
+         <p>
+            Морський бій. Випадковим чином на двовимірному полі розміром 6*6 розташовується 5 кораблів. <br>
+            Користувач стріляє вказуючи координати. <br>
+            Гра продовжується поки не потоплено усі кораблі або у користувача не закінчаться снаряди.
+         </p>
+         <h5>Результат: в консолі</h5>
+
+         <script>
+         const row = 6   
+         const column = 6  
+         const ship = 5
+         const min = 0, max = 5
+
+
+         // Масив одновимірний
+         function getArr(columnsNum) {
+            let arr = []
+            for (let i = 0; i < columnsNum; i++) {
+               arr.push(0)   
+            }
+            return arr   
+         }
+
+         // Масив двовимірний
+         function getArrTable(rowsNum,columnsNum) {
+            let table = []
+            for (let i = 0; i < rowsNum; i++) {
+               table.push(getArr(columnsNum))   
+            }
+            return table
+         }
+         console.log(getArrTable(row,column))
+         const seaArray = getArrTable(row,column) 
+         
+         // ФУНКЦІЯ заповнення кораблями 
+         function getShip(min,max) {
+            return min + Math.floor(Math.random() * (max - min + 1))
+         }
+         
+         function getShipInArray(arr,min,max, numShip) {
+            let indexRow, indexColumn
+            for (let i = 0; i <= numShip; i++) {
+               indexRow = getShip(min,max)
+               indexColumn =  getShip(min,max)
+               if (arr[indexRow][indexColumn] !== 1) 
+               arr[indexRow][indexColumn] = 1
+               else numShip+1
+            }
+            return arr 
+         }
+
+         const seaArrayWithShip = getShipInArray(seaArray, min,max, ship )
+         console.log(seaArrayWithShip)
+
+         // Гра користувача
+         function getUserPlay(arr, numShip) {
+            let indexRow
+            let indexColumn
+            let userShot = parseInt(prompt("Введіть кількість ваших пострілів","5"))
+            while((userShot !== 0)|| (numShip !== 0) ) 
+            {
+               indexRow = parseInt(prompt(`Введіть постріл по 'х' від 1 до 6`,"1"))
+               indexColumn = parseInt(prompt(`Введіть постріл по 'y' від 1 до 6`,"1"))
+               if (seaArrayWithShip[indexRow-1][indexColumn-1] === 1) {
+                  alert("Пряме влучення!")
+                  seaArrayWithShip[indexRow-1][indexColumn-1] = 0
+                  numShip--
+                  userShot--
+               }
+               else {
+                  userShot--
+                  alert("Не влучили!Пробуйте ще!")
+               }
+            }
+            return arr
+         }
+         const userPlay = getUserPlay(seaArrayWithShip, ship)
+
+            
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 1</title>
+</head>
+   <body>
+      <h2>Задача 1</h2>
+         <p>
+            Знайти суми елементів у вказаній області: <br>
+            1) x0y0 <br>
+            2) x0y1 <br>
+            3) x1y0 <br>
+            4) x1y1 <br>
+            5) Суму парних рядків <br>
+            6) Суму непарних стовпців <br>
+            7) У парних рядках – непарні стовпці, у непарних – парні.
+         </p>
+
+         <script>
+            
+            // Дано масив 
+            const arr = [[2,3],[5,4]]
+            console.log(`Масив: [${arr}]`)
+
+            function showValueElement(arrey,indexRow,indexColumn) { 
+               return arrey[indexRow][indexColumn]
+            }
+            console.log(`1) r0c0 = ${showValueElement(arr, 0, 0)}`)
+            console.log(`2) r0c1 = ${showValueElement(arr, 0, 1)}`)
+            console.log(`3) r1c0 = ${showValueElement(arr, 1, 0)}`)
+            console.log(`4) r1c1 = ${showValueElement(arr, 1, 1)}`)
+
+            // Дано масив
+            const arrey = [
+               [7,9,5,4], 
+               [6,8,9,2],
+               [1,7,0,2],
+               [5,9,4,7]
+            ]
+            console.log(`Дано масив: [[${arrey[0]}], [${arrey[1]}], [${arrey[2]}], [${arrey[3]}]]`)
+            
+            let partArrey =  arrey.length/2
+            console.log(`середина масиву = ${partArrey}`)
+
+            // 1
+            let sum_1 = 0 
+            for (let r = 0; r < partArrey; r++) {
+               for (let c = 0; c <  arrey[r].length/2; c++) {
+                  sum_1 += arrey[r][c]
+               }    
+            }
+            console.log(`1) ${sum_1}`)
+
+            // 2
+            let sum_2 = 0 
+            for (let r = 0; r < partArrey; r++) {
+               for (let c = arrey[r].length/2; c < arrey[r].length ; c++) {
+                  sum_2 += arrey[r][c]
+               }    
+            }
+            console.log(`2) ${sum_2}`)
+            
+            // 3
+            let sum_3 = 0 
+            for (let r = partArrey; r < arrey.length; r++) {
+               for (let c = 0; c < arrey[r].length/2 ; c++) {
+                  sum_3 += arrey[r][c]
+               }    
+            }
+            console.log(`3) ${sum_3}`)
+
+            // 4
+            let sum_4 = 0 
+            for (let r = partArrey; r < arrey.length; r++) {
+               for (let c = arrey[r].length/2; c < arrey[r].length ; c++) {
+                  sum_4 += arrey[r][c]
+               }    
+            }
+            console.log(`4) ${sum_4}`)
+            
+            // 5
+            let sum_5 = 0 
+            for (let r = 0; r < arrey.length; r++) { // або r+=2
+               if (r%2 === 0)
+                  for (let c = 0; c < arrey[r].length ; c++) {
+                     sum_5 += arrey[r][c]
+                  }    
+            }
+            console.log(`5)Сума парних рядків = ${sum_5}`)
+            
+
+            // 6
+            let sum_6 = 0 
+            for (let r = 0; r < arrey.length; r++) {
+                  for (let c = 0; c < arrey[r].length ; c++) { //с=1  або с+=2
+                     if (c%2 !== 0)
+                     sum_6 += arrey[r][c]
+                  }    
+            }
+            console.log(`6)сума непарних стовпців = ${sum_6}`)
+
+            // 7
+            let sum_7 = 0 
+            for (let r = 0; r < arrey.length; r++) {
+               if (r%2 === 0)
+                  for (let c = 0; c < arrey[r].length ; c++) { 
+                     if (c%2 !== 0)
+                     sum_7 += arrey[r][c]
+                  }    
+            }
+            console.log(`7)У парних рядках – непарні стовпці, у непарних – парні = ${sum_7}`)
+
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>
