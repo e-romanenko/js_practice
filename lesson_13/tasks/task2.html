@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 2</title>
+</head>
+   <body style="font-size: 22px;">
+      <h2>Задача 2</h2>
+         <p>
+            Нехай х(0)=х(1)=1, х(i)=х(і-1) + 2x(i-2) , де i=2,3... . 
+            Визначити Xn. Розв’язати з використанням рекурсивних і нерекурсивних алгоритмів
+         </p>
+         <h5>Результат: в консолі</h5>
+         
+         <script>
+         // _________Рекурсивний алгоритм_________
+         function recursion(n) {
+               if (n === 0 || n === 1) return 1
+               else return recursion(n-1) + 2 * recursion(n-2) 
+            }
+
+            let x10Recursion = recursion(10)
+            console.log(x10Recursion)
+
+
+            // _________Нерекурсивний алгоритм_________
+            function notRecursion(n){
+               if (n === 0 || n === 1) return 1
+               else{
+                  let x_n_1 = x_n_2 = 1
+                  for (let i = 2; i <= n; i++) {
+                     x_n = x_n_1 +2 * x_n_2
+                     x_n_2 = x_n_1
+                     x_n_1 = x_n
+                  }
+                  return x_n
+               }   
+            }
+            
+            const x10NotRecursion = notRecursion(10)
+            console.log(x10NotRecursion)
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>

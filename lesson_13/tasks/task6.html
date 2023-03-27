@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 6</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 6</h2>
+         <p>
+            Через 20 секунд перейти на сайт ukr.net. <br>
+            Для цього через 20 секунд після відкриття треба виконати команду<br>
+            window.location.href = 'https://www.ukr.net/'
+         </p>
+         <h5>Результат: сторінка завантажиться за ... </h5>
+         
+         <script>
+
+               let i = 1
+               let time = setInterval (
+                  () => {
+                  if (i === 21) {
+                     clearInterval(time)
+                  }
+                  else 
+                  document.write(`${i++}...`)}, 
+               1000)
+
+            // ______________Функція для переходу на сайт_____________
+            function showSite(link) {
+               let timeoutID = setTimeout(
+               () => window.location.href = link,
+               20000)   
+            } 
+            const pageSiteUkrNet = showSite('https://www.ukr.net/')
+            
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

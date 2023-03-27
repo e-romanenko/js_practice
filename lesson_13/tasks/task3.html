@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 3</title>
+</head>
+   <body style="font-size: 22px;">
+      <h2>Задача 3</h2>
+         <p>
+            З використанням замикань розробити ітератор, тобто функцію,<br> 
+            що буде поступово за окремими викликами видавати по одне значення <br>
+            від заданого мінімального до заданого максимального. <br>
+            Якщо значення досягне максимального, то наступним буде мінімальне значення.<br>
+            З використанням цієї функції реалізувати перебір номерів місяців. </p>
+         </p>
+         <h5>Результат: в консолі</h5>
+         
+         <script>
+
+            // _________Функція замикання_________
+
+            function iterator(minV, maxV) {
+               let value = minV
+               function countingValue() {
+                  if(value > maxV) value = minV 
+                     return value++  
+               }
+               return countingValue
+            }
+
+            const numMonths = iterator(1,12)
+            
+            // _________Функція для виводу результату_________
+            function showResaltNumMonth(end) {
+               let arrMonths = []
+               for (let i = 0; i < end; i++) {
+                  let month = numMonths()
+                  arrMonths.push(month)   
+               }
+               return arrMonths
+            }
+            
+            console.log(showResaltNumMonth(20))
+            
+            
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 4</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 4</h2>
+         <p>
+            З використанням замикань розробити ітератор, тобто функцію, <br>
+            що буде поступово за окремими викликами видавати по одну букву наперед заданого слова. <br>
+            З використанням нього розробити гру «Прекладач». <br>
+            Виводимо для користувача опис цього слова і по одну букву користувач вводить переклад цього слова. <br>
+            Підрахувати кількість вгаданих букв.
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            // __________________Функція замикання__________________ 
+            function showLatter (word) {
+               let index 
+               let counter = 0
+               function getLetter() {   
+                  if (counter <= word.length ){ 
+                     index = counter
+                     counter++
+                  }
+                  return word[index]
+               }
+               return getLetter
+            }
+
+            const wordOne = 'Україні'
+
+            //__________________Виклик функції замикання__________________
+            const letterNum = showLatter(wordOne)
+            
+            alert(`Translate the second part of the famouse phrase into Ukrainian 
+            "Glory to...!"`)
+
+            // _________Функція для порівняння відповіді користувача і загаданого слова_________
+            function getCaunterСorrectLetters(word) {
+               let caunter = 0
+               for (let i = 0; i < word.length; i++) {
+                  const userLetter = prompt(`Введіть літеру ${i+1}?`)
+                  if ( userLetter === letterNum())
+                  caunter ++  
+               }
+               return caunter
+            }
+            // __________________Виклик функції порівняння__________________
+            const resaltCaunter = getCaunterСorrectLetters(wordOne)
+            console.log(resaltCaunter)
+
+            // __________________Виводимо результат гри__________________
+            if (resaltCaunter === 6) 
+            document.write(`Ви вірно вказали кому Слава! <br> "Слава УКРАЇНІ! Героям Слава!"`)
+            else 
+            document.write(`Ви вгадали ${resaltCaunter} літ.`)
+            
+
+            
+
+         
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>
