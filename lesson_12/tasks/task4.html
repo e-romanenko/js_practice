@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 4</title>
+</head>
+   <body style="font-size: 22px;">
+      <h2>Задача 4</h2>
+         <p>
+            Для розглянутих методів сортування спробувати вивести етапи сортування <br>
+            шляхом виведення відповідних таблиць за зразком. <br>
+            Тобто кожного разу після обміну елементів вивести поточний стан масиву на екран.
+         </p>
+         <h5>Результат: </h5>
+         
+         <script>
+            // _________________Створення масиву_________________
+            function getRandomArray(quantityEl, max, min) {
+               let arr =[]
+               for (let i = 0; i < quantityEl; i++) {
+                  const rundomNum = min + Math.floor(Math.random() * (max - min +1))
+                  arr.push(rundomNum)
+               }
+               return arr
+            }
+            const array = getRandomArray(10,1,10)
+
+            //__________________Копіювання масиву____________________
+            const newArray = array.map(el => el)
+            document.write(`Початковий масив: [${newArray}] <br> <br>`)
+
+            //_______________Сортування бульбашкою___________________
+            let changer
+            let counter = 0
+            do {
+               changer = false
+               for (let i = 1; i < newArray.length; i++) {
+                  if (newArray[i-1] > newArray[i]){ // якщо ел.масиву з індексом [i-1] більше  ел.масиву з індексом[i], тоді
+                     [newArray[i-1],newArray[i]] = [newArray[i], newArray[i-1]] // міняємо ії місцями
+                     changer = true // оголошуємо що перестановка відбулась
+                     counter ++ //рахуємо скільки разів
+                     document.write(`${counter} ----> ${newArray} <br>`)
+                  }   
+               }
+            }
+            while (changer)
+            
+            //____________________Виводимо результат____________________
+
+            document.write(`<br>
+            Кінцевий масив: [${newArray}] <br>
+            Кіл-ть обмінів під час сортування бульбашкою: ${counter}`)
+
+         
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

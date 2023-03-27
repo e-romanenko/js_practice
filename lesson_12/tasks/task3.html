@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 3</title>
+</head>
+   <body style="font-size: 22px;">
+      <h2>Задача 3</h2>
+         <p>
+            Дано масив 30 випадкових цілих чисел. <br>
+            Підрахувати скільки було обмінів під час сортування включеннями.
+         </p>
+         <h5>Результат: в консолі </h5>
+         
+         <script>
+            // _________________Створення масиву_________________
+            function getRandomArray(quantityEl, max, min) {
+               let arr =[]
+               for (let i = 0; i < quantityEl; i++) {
+                  const rundomNum = min + Math.floor(Math.random() * (max - min +1))
+                  arr.push(rundomNum)
+               }
+               return arr
+            }
+            const array = getRandomArray(30,1,50)
+            console.log(array)
+            document.write(`Початковий масив: [${array}] <br> <br>`)
+
+            //__________________Копіювання масиву____________________
+            const arr = array.map(el => el)
+
+            //_______________Сортування включенням___________________
+            let currentEl, previousEl
+            let counter = 0
+            
+            for (let i = 1; i < arr.length; i++) {
+               currentEl = arr[i]
+               previousEl = i-1
+               while (previousEl >= 0 && arr[previousEl] > currentEl) {
+                  arr[previousEl+1] = arr[previousEl]
+                  previousEl = previousEl - 1
+                  counter++
+                  document.write(`№${counter}:---->${arr} <br>`)
+               }
+               arr[previousEl+1] = currentEl
+            }
+            //____________________Виводимо результат____________________
+            console.log(arr)
+            console.log(`Кіл-ть обмінів під час сортування змішуванням: ${counter}`)
+
+            document.write(` <br>
+            Кінцевий результат: [${arr}] <br>
+            Кіл-ть обмінів під час сортування змішуванням: ${counter}`)
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>

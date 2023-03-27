@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 5</title>
+</head>
+   <body style="font-size: 22px;">
+      <h2>Задача 5</h2>
+         <p>
+            Дано масив імен. <br>
+            Застосовуючи відповідне сортування та бінарний пошук визначити, чи є у масиві ім’я «Olga» і під яким індексом.
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            //__________________Дано масив________________________
+            const arrName = ['Peter','Olga', 'Dmytro','Danylo','Bohdan','Peter','Ioanna','Olena','Dmytro','Danylo','Bohdan']
+            console.log(arrName)
+            document.write(`Первинний масив: [${arrName}] <br><br>`)
+            
+
+            // __________________Сортування масиву включенням_________________
+            function inclusionSort(arr) {
+               let currentEl, previousEl
+               for (let i = 1; i < arr.length; i++) {
+                  currentEl = arr[i]
+                  previousEl = i-1
+                  while (previousEl >= 0 && arr[previousEl] > currentEl) {
+                     arr[previousEl+1] = arr[previousEl]
+                     previousEl = previousEl - 1
+                  }
+                  arr[previousEl+1] = currentEl
+               }
+               return arr
+            }
+
+            let arrNameSort = inclusionSort(arrName)
+            console.log(arrNameSort)
+            document.write(`Відсортований масив: [${arrNameSort}] <br> <br>`)
+            
+
+            //________________Бінарний пошук______________________
+            function binarSerch(arr, serchEl) {
+               let start = 0
+               let end = arr.length - 1 
+               while (start <= end) {
+                  const middle = Math.floor((start+end)/ 2)
+                  if(arr[middle] === serchEl) return middle
+                  if(arr[middle] < serchEl) start = middle +1
+                  if(arr[middle] > serchEl) end = middle - 1
+               }
+               return -1
+            }
+
+            //__________Викликаємо функцію бінарного пошуку____________
+            const serchInd = binarSerch(arrNameSort, 'Olga')
+
+            //_____________Виводимо результат___________________
+            if(serchInd !== -1){ 
+               console.log(`Ім'я 'Olga' знаходиться в масиві під індексом № ${serchInd}`)
+               document.write(`Ім'я 'Olga' знаходиться в масиві під індексом № ${serchInd}`)
+            }
+            else{    
+               console.log(`Імені 'Olga' не має в масиві`)
+               document.write(`Імені 'Olga' не має в масиві`)
+            }
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

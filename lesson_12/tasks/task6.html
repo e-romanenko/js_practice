@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 6</title>
+</head>
+   <body style="font-size: 22px;">
+      <h2>Задача 6</h2>
+         <p>
+            Дано масив імен. <br>
+            Застосовуючи відповідне сортування та бінарний пошук визначити, <br>
+            чи є у масиві ім’я довжиною 5 символів і під яким індексом.
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+            // _____________________Дано масив імен____________________
+            const arrName = ['Ivanna','Yevheniia','Peter','Danylo','Bohdan','Ioanna','Olga','Olena', 'Dmytro']
+            console.log(arrName)
+
+            // ____Для бінарного пошуку УПОРЯДКОВУЄМО масив ( вик-мо сор-ня змішування)______
+            function getSortMixArr(arr) {
+               let start = 0
+               let end = arr.length - 1
+
+               while (start < end) {
+                  for (let i = start; i < end; i++) {
+                     if(arr[i].length > arr[i+1].length){
+                        [arr[i], arr[i+1]] = [arr[i+1],arr[i]]
+                     }
+                  }
+                  end--
+                  for (let i = end; i > start; i--) {
+                     if(arr[i].length < arr[i-1].length){
+                        [arr[i],arr[i-1]] = [arr[i-1],arr[i]]
+                     }  
+                  }
+                  start++
+               }
+               return arr
+            }
+            const arrNameSort = getSortMixArr(arrName)
+            console.log(arrNameSort)
+
+            // ___Створюємо функцію, для бінарного пошуку елемента з кіл. символів 5____
+
+            function getElementNumLettersUsingBinarSearch(arr, numLetters) {
+               let start = 0
+               let end = arr.length - 1
+
+               while (start <= end){
+                  const middle = Math.floor((start+end)/2)
+                  if(arr[middle].length === numLetters) return middle
+                  if(arr[middle].length < numLetters)  start = middle + 1
+                  if(arr[middle].length > numLetters)  end = middle - 1
+               }
+               return -1
+            }
+
+            const serceElInd = getElementNumLettersUsingBinarSearch(arrNameSort, 5)
+            
+            if (serceElInd !== -1){
+               console.log(`Ім'я довжиною 5 символів знаходиться в масиві під індексом №${serceElInd}`)
+               document.write(`Ім'я довжиною 5 символів знаходиться в масиві під індексом №${serceElInd}`)
+            }
+            else {
+               console.log(`Ім'я довжиною 5 символів не входить в масив`)
+               document.write(`Ім'я довжиною 5 символів не входить в масив`)
+            }
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>
