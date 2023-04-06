@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 4</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 4</h2>
+         <p> 
+            Розробити клас Baner <br>
+            Поля:<br>
+            Масив об’єктів ( графічних зображень та посилань на сайти)<br>
+            Методи:<br>
+            Метод випадкового вибору об’єкта (графічного зображення та посилання)<br>
+            Метод виведення випадкового банера 
+            
+         </p>
+         <a href=""></a>
+         
+         <h5>Результат:</h5>
+         
+         <script>
+            //___________________Дано масив об'єктів________________ 
+            banersArr = [
+                  {
+                     image: "../img/img1.jpeg",
+                     link: "https://uakino.club/cartoon/cartoonseries/13211-legenda-pro-voks-makna-1-sezon.html"
+                  },
+                  {
+                     image: "../img/img2.jpeg",
+                     link: "https://uakino.club/cartoon/cartoonseries/15912-ostann-dti-na-zeml-1-sezon.html"
+                  },
+                  {
+                     image: "../img/img3.jpeg",
+                     link: "https://uakino.club/cartoon/cartoonseries/9898-zemnovodya-amfbya-1-sezon.html"
+                  },
+                  {
+                     image: "../img/img4.jpeg",
+                     link: "https://uakino.club/cartoon/cartoonseries/12089-kpo-ta-epoha-divozvrv.html"
+                  },
+                  {
+                     image: "../img/img5.jpeg",
+                     link: "https://uakino.club/cartoon/cartoonseries/15465-zoryaniy-shlyah-nizhn-palubi-1-sezon.html"
+                  }
+               ]
+
+            // _______Створюємо шаблон для вивдоду зображення_______         
+            class Baner {
+               constructor(arr){
+                  this.banerArr = arr
+               }
+
+               getRandomIndex() {
+                  return Math.floor(Math.random() * this.banerArr.length)  
+               }
+            
+               showBaner() {
+                  const index = this.getRandomIndex()
+                  return `<a href=${this.banerArr[index].link}><img style="width: 250px;" src=${this.banerArr[index].image} alt="img"></a>`
+               }
+            }
+
+            let randomBaner = new Baner(banersArr)
+            document.write(randomBaner.showBaner())
+            
+         
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

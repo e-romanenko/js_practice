@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 2</title>
+</head>
+   <body style="font-size: 22px;">
+      <h2>Задача 2</h2>
+         <p>
+            Створити об’єкт «Авто». <br>
+            Поля(властивості): <br>
+            Марка<br>
+            Розмір бака<br>
+            Кількість наявних літрів<br>
+            Кількість місць<br>
+            Кількість пасажирів<br>
+
+            Методи (дії):<br>
+            Заправка на вказану кількість літрів<br>
+            Виведення кількості пасажирів<br>
+            Додавання пасажирів<br>
+            Висадка пасажирів
+         </p>
+         <h5>Результат: в консолі</h5>
+         
+         <script>
+            // Стоврення функції конструктора об'єкта
+            function Auto (carBrand,tankSize,numLiters,numSpace,numPassengers) {
+               
+               // властивості
+               this.carBrand = carBrand,
+               this.tankSize = tankSize,
+               this.numLiters = numLiters,
+               this.numSpace = numSpace,
+               this.numPassengers = numPassengers,
+
+               // методи
+               this.getСarRefueling = function(){
+                  let lack = this.tankSize - this.numLiters
+                  let usetLiters = parseInt(prompt(`Ви можете заправити машину не більше чим на: ${lack} літрів. Скільки будуте заправляти?`,'20'))
+                  return this.numLiters + usetLiters
+               },
+
+               this.showNumPassengers = function(){
+                  return this.numPassengers
+               },
+
+               this.calcMorePassengers = function(){
+                  let numMorePas = parseInt(prompt(`Машина має ${this.numSpace} місць, вже є ${this.numPassengers} пасажири. Скільки хочете посадити пасажирів?`,'3'))
+                  return this.numPassengers + numMorePas
+               },
+
+               this.calcLessPassengers = function(){ 
+                  let numLessPas = parseInt(prompt(`В машині ${this.numPassengers} пасажирів. Скільки пасажирів має вийти?`,'1'))
+                  return this.numPassengers - numLessPas
+               }
+
+            }
+
+            let auto = new Auto ('Mazda',55,20,5,3)
+            console.log(auto)
+            
+            console.log(`В баку ${auto.getСarRefueling()} літрів`)
+            console.log(`Кіл-ть пасажирів: ${auto.showNumPassengers()}`)
+            console.log(`Збільшена кіл-ть пасажирів: ${auto.calcMorePassengers()}`)
+            console.log(`Зменшена кіл-ть пасажирів: ${auto.calcLessPassengers()}`)
+
+
+
+
+         
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>

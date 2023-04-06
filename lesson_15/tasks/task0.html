@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 10</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 10</h2>
+         <p>
+            Дано два об’єкта. Обидва містять масив цілих чисел. <br>
+            При цьому у одному з них є функція знаходження суми, <br>
+            а у іншому – функція для знаходження добутку тих, <br>
+            які знаходяться між заданими мінімальним і максимальних значенням.<br>
+            Використати обидва методи стосовно обидвох об’єктів (використати call, apply)
+         </p>
+         <h5>Результат: в консолі</h5>
+         
+         <script>
+            //__________________Дано__________________
+
+            let object1 = {
+               arr : [4,7,8,2,5,7,8,2,4],
+               getSum: function(){
+                  return this.arr.reduce((prevSum, num) => prevSum + num)
+               }
+            }
+
+
+            let object2 = {
+               arr : [6,5,7,9,2,5,7,8,2],
+               getProduct: function (minV, maxV){
+                  return this.arr.reduce((prevProd, num)=> {
+                     if ((num > minV) && (num < maxV)) return prevProd * num
+                     else return prevProd
+                  },1)
+               }
+            }
+
+            // _________Виклик 'рідних' функцій об'єктів____________ 
+            let sumObj1 = object1.getSum()
+            let prodObj2 = object2.getProduct(1,6)
+
+            console.log(`Сума object1: ${sumObj1}`)
+            console.log(`Добуток object2: ${prodObj2}`)
+
+            // _________Виклик функцій з наперед заданим this_________
+
+            // call  (новий контекст, аргум-т №1, фргум-т №2)
+            let prodObj1c = object2.getProduct.call(object1, 4,8)
+            let sumObj2c = object1.getSum.call(object2)
+
+            // apply (новий контекст,[список аргументів])
+            let prodObj1a = object2.getProduct.apply(object1, [4,8])
+            let sumObj2a =  object1.getSum.apply(object2)
+            
+            //_________________ Виводимо результат_________________
+            console.log(`Добуток object1: ${prodObj1c}`)
+            console.log(`Сума object2: ${sumObj2c}`)
+            
+
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 5</title>
+</head>
+<body style="font-size: 22px;">
+   <h2>Задача 5</h2>
+         <p>
+            Розробити клас «Керівник танців» <br>
+            Поля:<br>
+            Масив імен хлопців<br>
+            Масив імен дівчат<br>
+            Методи:<br>
+            Метод випадкового вибору імені хлопця<br>
+            Метод випадкового вибору імені дівчини<br>
+            Метод виведення пари для танців<br>
+            Метод run , який ініціює через кожні 5 секунд виведення нової пари для танців
+
+
+         </p>
+         <h5>Результат: в консолі</h5>
+
+         
+         <script>
+            namesGirls = ['Aнна','Софія','Оленка','Дарина','Юлія']
+            namesBoys = ['Сашко','Данило','Богдан','Остап','Петро']
+
+            class Dancing {
+               constructor (listGirls, listBoys,interval){
+                  this.listGirls = listGirls,
+                  this.listBoys = listBoys,
+                  this.interval = interval
+               }
+
+               getRanNameGirl(){
+                  const runIndex = Math.floor(Math.random()* this.listGirls.length)
+                  return this.listGirls[runIndex]
+               }
+               getRanNameBoy(){
+                  const runIndex = Math.floor(Math.random()* this.listBoys.length)
+                  return this.listBoys[runIndex]
+               }
+               showСouples(){
+                  alert (`Пара для танців: ${this.getRanNameGirl()} і ${this.getRanNameBoy()}`)
+               }
+               run (){
+                  setInterval(()=> {
+                     this.showСouples()
+                  }, this.interval * 1000)
+               }
+            }
+
+            const coupleOfDancers = new Dancing(namesGirls,namesBoys, 5)
+            coupleOfDancers.run ()
+            
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+</body>
+</html>

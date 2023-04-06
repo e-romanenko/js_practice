@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 3</title>
+</head>
+   <body style="font-size: 22px;">
+      <h2>Задача 3</h2>
+         <p>
+            Розробити клас MultChecker для перевірки таблиці множення.<br>
+            Поля:<br>
+            Число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7)<br>
+            Кількість правильних відповідей<br>
+            Кількість неправильних відповідей<br>
+            Методи<br>
+            Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)<br>
+            Перевірка правильності вказаної відповіді<br>
+            render - виведення інформації про тестування на екран      
+         </p>
+         <h5>Результат:</h5>
+         
+         <script>
+
+            class MultChecker {
+
+               constructor(numCheck,correctAnswer, wrongAnswer){
+                  // властивості
+                  this.num1 = numCheck,
+                  this.correctAnswer = correctAnswer,
+                  this.wrongAnswer = wrongAnswer
+               }
+
+                  // методи 
+               getRandomExample (){
+                  let num2 = Math.floor(Math.random() * 10)
+                  return num2
+               }
+
+               getCorrectAnswer (){
+                  const num2 = this.getRandomExample()
+                  const product = this.num1 * num2
+                  const userNum = parseInt(prompt(`${this.num1} * ${num2} = `))
+                  if (product === userNum) return this.correctAnswer++
+                  else return this.wrongAnswer++
+               }
+               
+               toString () {
+                  return `Вірних відповідей - ${this.correctAnswer};<br> не вірних відповідей - ${this.wrongAnswer}`
+               }  
+            }
+
+            const test = new MultChecker(7,0,0)
+
+            const userNum = parseInt(prompt("Скільки розв'яжете прикладів?"))
+
+            for (let i = 0; i < userNum; i++) {
+               test.getRandomExample()
+               test.getCorrectAnswer()
+            }
+
+            document.write(test.toString ())
+   
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>
