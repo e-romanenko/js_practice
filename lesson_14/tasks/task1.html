@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 1</title>
+</head>
+   <body style="font-size: 22px;">
+      <h2>Задача 1</h2>
+         <p>
+            Описати масив об’єктів – сайтів розроблених компанією з такими властивостями <br>
+            ----- Властивості ------ <br>
+            назва компанії на час розробки (назву періодично змінюють)<br>
+            власник компанії<br>
+            споснсори (масив спонсорів)<br>
+            * прізвище спонсора<br>
+            * ім’я  спонсора<br>
+            * сума вкладень спонсора<br>
+            рік випуску<br>
+            вартість сайту<br>
+            <br>
+            Знайти:<br>
+            1) загальну вартість усіх сайтів<br>
+            2) кількість сайтів, що було зроблено між 2000 та 2009 рр.<br>
+            3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000<br>
+            4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)<br>
+            5) знайти рік, коли прибуток був найбільшим <br>
+            6) упорядкувати список за спаданням прибутку <br>
+            7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000 <br>
+         </p>
+         <h5>Результат: в консолі</h5>
+         
+         <script>
+            let siteDevelopers = [
+               {
+                  nameCompany: 'DC Comics',
+                  ounerCompany: 'WarnerMedia',
+                  startYear: 2001,
+                  costSite: 90000,
+                  sponsors: [
+                     {
+                        name: 'Batmen',
+                        investment: 20000
+                     },
+                     {
+                        name: 'Superman',
+                        investment: 20000
+                     },
+                     {
+                        name: ' Catwoman',
+                        investment: 1000
+                     },
+                  ]
+               },
+               /*___________________________________________________________________*/
+               {
+                  nameCompany: 'TMNT',
+                  ounerCompany: 'Splinter ',
+                  startYear: 2010,
+                  costSite: 800000,
+                  sponsors: [
+                     {
+                        name: 'Leonardo',
+                        investment: 100000
+                     },
+                     {
+                        name: 'Raphael',
+                        investment: 153000
+                     },
+                     {
+                        name: 'Michelangelo',
+                        investment: 80000
+                     },
+                     {
+                        name: 'Donatello',
+                        investment: 120000
+                     }
+                  ]
+               },
+               /*___________________________________________________________________*/
+               {
+                  nameCompany: 'Marvel',
+                  ounerCompany: ' Walt Disney Company',
+                  startYear: 2000,
+                  costSite: 600000,
+                  sponsors: [
+                     {
+                        name: 'Spider-Man ',
+                        investment: 30000
+                     },
+                     {
+                        name: 'Iron Man',
+                        investment: 100000
+                     },
+                     {
+                        name: 'Doctor Strange',
+                        investment: 90000
+                     },
+                     {
+                        name: 'Deadpool',
+                        investment: 100000
+                     }
+                  ]
+               },
+               /*___________________________________________________________________*/
+               {
+                  nameCompany: 'Netflix',
+                  ounerCompany: 'Reed Hastings',
+                  startYear: 2013,
+                  costSite: 150000,
+                  sponsors: [
+                     {
+                        name: 'Sonic ',
+                        investment: 20000
+                     },
+                     {
+                        name: 'King Julien ',
+                        investment: 30000
+                     }
+                  ]
+               },
+               /*___________________________________________________________________*/
+               {
+                  nameCompany: 'Pixar',
+                  ounerCompany: 'George Lucas',
+                  startYear: 2005,
+                  costSite: 190000,
+                  sponsors: [
+                     {
+                        name: 'WALL-E',
+                        investment: 10000
+                     },
+                     {
+                        name: 'Dory',
+                        investment: 10000
+                     },
+                     {
+                        name: 'Ratatouille',
+                        investment: 10000
+                     },
+                     {
+                        name: ' Nemo',
+                        investment: 10000
+                     }
+                  ]
+               }
+         ]
+
+         //Знайти:
+            //1) загальну вартість усіх сайтів
+            let costAllSites = siteDevelopers.reduce(
+               (prevSum, site) => prevSum + site.costSite 
+               ,0)
+            console.log(`1) Загальну вартість усіх сайтів: ${costAllSites}`)
+
+
+            //2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+            let counterSiteBetween2000_2009 = siteDevelopers.reduce(
+               (prevCounter, object) => {
+               if((object.startYear >= 2000) && (object.startYear <= 2009)) return prevCounter + 1 
+               else return prevCounter
+               }
+            ,0)
+               console.log(`2) Кількість сайтів, що було зроблено між 2000 та 2009 рр.: ${counterSiteBetween2000_2009}`);
+
+
+            //3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+            
+            let counterSiteSumInvestmentMore100000 = siteDevelopers.reduce (
+               (prevCounter, object) => {
+                  let sumInvestment = object.sponsors.reduce ((prevSum, sponsor) => prevSum + sponsor.investment, 0)
+                  if(sumInvestment > 100000) return prevCounter+1 
+                  else return prevCounter
+               },0)
+            
+            console.log(`3) Кількість сайтів, де сума спонсорських вкладень була більшою за 100000: ${counterSiteSumInvestmentMore100000}`)
+
+
+            //4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
+               let arrSponsors = []
+               for (const object of siteDevelopers) {
+                  for (const sponsors of object.sponsors) {
+                     arrSponsors.push(sponsors.name)
+                  }
+               }   
+               console.log(`4) Список інвесторів: [${arrSponsors}]`);
+
+
+            //5) знайти рік, коли прибуток був найбільшим
+               let maxCost = -Infinity
+               let yearMaxCost 
+               let companyMaxCost
+               for (const object of siteDevelopers) {
+                  if (object.costSite > maxCost) {
+                     maxCost = object.costSite
+                     yearMaxCost = object.startYear
+                     companyMaxCost = object.nameCompany
+                  }
+               }
+               console.log(`5) Рік найбільшого прибутку: ${yearMaxCost} , в компанії: ${companyMaxCost}`);
+
+
+            //6) упорядкувати список за спаданням прибутку
+            const siteDevelopersCopy = JSON.parse(JSON.stringify(siteDevelopers))
+            let changer
+            do {
+               changer = false
+               for (let i = 1; i < siteDevelopersCopy.length; i++) {
+                  if(siteDevelopersCopy[i-1].costSite < siteDevelopersCopy[i].costSite){
+                     let temp = siteDevelopersCopy[i-1]
+                     siteDevelopersCopy[i-1] = siteDevelopersCopy[i]
+                     siteDevelopersCopy[i] = temp
+
+                     changer = true
+                  }   
+               }   
+            }
+            while (changer)
+            
+            console.log('6) Упорядкуваний список за спаданням прибутку:');
+            console.log(siteDevelopersCopy);
+
+            //7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 100000 і більше 100000
+            const COST = 100000
+            let arrObjectLess100000 = []
+            let arrObjectMore100000 = []
+
+            const siteDevelopersCopy2 = JSON.parse(JSON.stringify(siteDevelopers))
+
+            siteDevelopersCopy2.forEach(object => {
+               if (object.costSite > COST) arrObjectMore100000.push(object)
+               else arrObjectLess100000.push(object)
+            });
+
+            console.log('7) списки з копіями об’єктів, що містять сайти з вартість до 100000 і більше 100000:')
+            console.log(arrObjectLess100000)
+            console.log(arrObjectMore100000)
+
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>
