@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 3</title>
+</head>
+   <body style="font-size: 20px; line-height: 1.25;">
+      <h2>Задача 3</h2>
+         <p>
+            Об’єкт “Фірма” (використати члени-класи)<br>
+               Поля:<br>
+                  -> назва фірми;<br>
+                  -> дата заснування (рік, місяць);<br>
+                  -> послуги (назва послуги, вартість, термін виконання);<br>
+                  -> адреси філіалів (країна, місто, вулиця, номер будинку);<br>
+               Mетоди:<br>
+                  -> визначення кількості років існування фірми;<br>
+                  -> виведення всіх філіалів фірми у вказаному місті;<br>
+                  -> виведення на екран послуг, що можуть бути виконані за вказану суму грошей та вказаний термін часу;      
+         </p>
+         <h5>Результат:</h5>
+
+         <script>
+
+            //дата заснування (рік, місяць)
+            class DateEstablishment {
+               #monthEst
+               #yearEst
+               constructor (monthEst, yearEst){
+                  this.Month = monthEst
+                  this.Year = yearEst
+               }
+
+               get Month(){return this.#monthEst}
+               get Year(){return this.#yearEst}
+
+               set Month (newValue){
+                  if ((newValue <=0) && (newValue >12))
+                     throw new Error ("Дані некоректні")
+                  this.#monthEst = newValue
+               }
+               set Year (newValue){
+                  if ((newValue <= 0) && (newValue > 2023))
+                     throw new Error ("Дані некоректні")
+                     this.#yearEst = newValue
+               }
+               
+               toString (){
+                  return `Дата заснування фірми: ${this.Month}.${this.Year} року`
+               }
+            }
+
+            //послуги (назва послуги, вартість, термін виконання)
+            class Services { 
+               #name
+               #price
+               #deadline
+               constructor (serviceName, servicePrice, deadline){
+                  this.Name = serviceName
+                  this.Price = servicePrice
+                  this.Deadline = deadline
+               }
+
+               get Name(){return this.#name}
+               get Price(){return this.#price}
+               get Deadline(){return this.#deadline}
+
+               set Name(newName){
+                  if(newName.lahgth === 0) 
+                     throw new Error ("Некоректне значення")
+                  this.#name = newName
+               }
+               set Price(newPrice){
+                  if(newPrice < 0) 
+                     throw new Error ("Некоректне значення")
+                  this.#price = newPrice
+               }
+               set Deadline(newDeadline){
+                  if(newDeadline <= 0) 
+                     throw new Error ("Некоректне значення")
+                  this.#deadline = newDeadline
+               }
+
+               toString(){
+                  return `${this.Name}; price: ${this.Price}, deadline: ${this.Deadline} <br>`
+               }
+            }
+
+            // адреси філіалів (країна, місто, вулиця, номер будинку);
+            class Filiation { 
+               #country
+               #city
+               #street
+               #houseNum
+               constructor(country, city, street, houseNum){
+                  this.Country = country
+                  this.City = city
+                  this.Street = street
+                  this.HouseNum = houseNum
+               }
+               get Country(){return this.#country}
+               get City(){return this.#city}
+               get Street(){return this.#street}
+               get HouseNum(){return this.#houseNum}
+
+               set Country (newValue){
+                  if (newValue.lahgth === 0) 
+                     throw new Error ("Некоректне значення")
+                  this.#country = newValue
+                  }
+               set City (newValue){
+                  if (newValue.lahgth === 0) 
+                     throw new Error ("Некоректне значення")
+                  this.#city = newValue
+                  }
+               set Street (newValue){
+                  if (newValue.lahgth === 0) 
+                     throw new Error ("Некоректне значення")
+                  this.#street = newValue
+                  }
+               set HouseNum (newValue){
+                  if (newValue.lahgth === 0) 
+                     throw new Error ("Некоректне значення")
+                  this.#houseNum = newValue
+                  }
+
+               toString (){
+                  return `Адреса: ${this.Country},  м.${this.City}, вул.${this.Street} буд.${this.HouseNum} <br>`
+               }   
+            }
+
+
+            class Firm {
+               #nameFirm
+               constructor (nameFirm, monthEst,yearEst, servicesList ,filiaList){
+                  this.monthEst = monthEst
+                  this.yearEst = yearEst
+                  this.NameFirm = nameFirm 
+                  this.dateEst = new DateEstablishment(this.monthEst,this.yearEst) 
+                  this.services = servicesList
+                  this.filials = filiaList
+               }
+               get NameFirm(){return this.#nameFirm}
+               set NameFirm(newValue) {
+                  if (newValue.lahgth === 0)
+                     throw new Error ("Некоректне значення")
+                  this.#nameFirm = newValue  
+               }
+               //____________________________методи____________________________
+                //-> визначення кількості років існування фірми
+               getNumYearsWorkFirm (nowYear, nowMonth) {
+                  let numYearWork = nowYear - this.yearEst
+                  let numMonthWork = nowMonth - this.monthEst
+                  if (numMonthWork < 0) 
+                     numYearWork = numYearWork - (Math.ceil(Math.abs(this.monthEst/12)))
+                  return numYearWork
+               }
+               //-> виведення всіх філіалів фірми у вказаному місті;
+               showSpecificFil (city) {
+                  for (const filial of this.filials) {
+                     if (filial.City === city)
+                     document.write(`${filial}`)
+                  }
+               }
+               //-> виведення на екран послуг, що можуть бути виконані за вказану суму грошей та вказаний термін часу;      
+               showService (sumMoney, time){
+                  for (const serwise of this.services) {
+                     if ((serwise.Price <= sumMoney) && (serwise.Deadline <= time) )
+                     document.write(`${serwise}`)
+                  }
+               }
+
+               toString (){ 
+                  return `Назва фірми: ${this.NameFirm}`
+               }
+            }
+
+            const monthEstNum = parseInt(prompt('Введіть місяць заснування фірми','12'))
+            const yearEstNum = parseInt(prompt('Введіть рік заснування фірми','2000'))
+
+
+            const numService = parseInt(prompt('Ведіть кількість послуг', '10'))
+            let price = 150 
+            let time = 15
+            const servicesList = []
+            for (let i = 1; i <= numService; i++) {
+               price += 50
+               time += 5
+               servicesList.push(new Services(`service№${i}`, `${price}`, `${time}`))   
+            }
+            console.log(servicesList)
+
+            const filiaList = [
+               new Filiation ('Україна','Київ','Виставкова',5),
+               new Filiation ('Україна','Львів','Юрія Руфа',77),
+               new Filiation ('Україна','Львів','Короля Данила','167a'),
+               new Filiation ('Україна','Харків','Ранкова',83),
+               new Filiation ('Україна','Одеса','Літературна',14),
+               new Filiation ('Україна','Чернівці','Червона',14),
+               new Filiation ('Україна','Дніпро','Чорновола',2),
+               new Filiation ('Україна','Дніпро','ЦУМ',55)
+            ]
+            console.log(filiaList)
+            
+            // ______________________Створення нової фірми________________________
+            let firm = new Firm ("Гвер", monthEstNum, yearEstNum,servicesList,filiaList)
+            const dateEst = firm.getNumYearsWorkFirm (2023, 4)
+            //_________________________Вивід результатів_________________________
+            document.write(`${firm}<br>`)
+            document.write(`Фірма існує: ${dateEst} роки <br>`)
+            document.write(`<br> Філіали у місті Львів:<br>`)
+            firm.showSpecificFil('Львів')
+            document.write(`<br> Послуги в діапазоні до 500$, час роботи до 30 годин: <br>`)
+            firm.showService(500,30)
+
+         </script>
+
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>

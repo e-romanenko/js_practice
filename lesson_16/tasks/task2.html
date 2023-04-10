@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 2</title>
+</head>
+   <body style="font-size: 18px;">
+      <h2>Задача 2</h2>
+         <p>
+            Створити клас TMoney для роботи з грошовими сумами.  <br>
+            Сума повинна зберігатися у вигляді доларового еквіваленту. <br>
+            Реалізувати методи додавання/вилучення грошової маси, <br>
+            вказуючи необхідну суму у гривнях, та визначення курсу долара, <br>
+            при якому сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі. 
+         </p>
+         <h5>Результат: в консолі</h5>
+
+         <script>
+         
+            class TMoney {
+               /*_______________захист даних (приватне поле)______________*/
+               #dollarExchangeRate 
+
+               /*____________________властивості______________________*/
+               constructor (valueRate, valueBalance){
+                  this.DollarExchangeRate = valueRate
+                  this.CustomerBalance = valueBalance
+               }
+               /*______________________методи_________________________*/
+               // читання приватного поля
+               get DollarExchangeRate (){
+                  return this.#dollarExchangeRate 
+               }
+
+               // зміни значення приватного поля
+               set DollarExchangeRate(newValue){
+                  if (newValue <= 0 || newValue >= 100)
+                     throw new Error ('Некоректне значення')
+                  this.#dollarExchangeRate  =  newValue 
+               }
+               
+               // метод конвертації валюти
+               Сonversion (valueHryvnias){
+                  return valueHryvnias/this.DollarExchangeRate
+               }
+               // метод додавання грошей
+               getIncrementMoney (moneyHr){
+                  return this.CustomerBalance = this.CustomerBalance + this.Сonversion(moneyHr)  
+               }
+               // метод вилучення грошей
+               getDecreaseMoney (moneyHr) { 
+                  let сonversion = this.Сonversion(moneyHr)                  
+                  if (this.CustomerBalance > сonversion) return this.CustomerBalance = this.CustomerBalance - сonversion
+                  else alert ('Не вистачає коштів')   
+               }
+
+               // метод визначення курсу долара, при якому сума в грн збільшиться на 100
+               getDollarExchangeRateIfСhangeHryvnia (){
+                  return this.DollarExchangeRate = (100 + (this.CustomerBalance * this.DollarExchangeRate))/  this.CustomerBalance
+               }
+               
+               // метод перетворення даних у рядок і виведення їх
+               toString(){
+                  return `Ваш баланс: ${this.CustomerBalance}$, курс долара ${this.DollarExchangeRate}`
+               }
+            }
+
+            // Створення першого об'єкту
+            let userAccount = new TMoney(38, 210)
+            console.log (`Початкові дані___${userAccount.toString()}`)
+
+            // Зміна даних
+            userAccount.DollarExchangeRate = 40
+            userAccount.CustomerBalance = 200
+            console.log (`Замінна даних____${userAccount.toString()}`)
+
+            // Додавання грошей
+            userAccount.getIncrementMoney(1200)
+            console.log (`Додавання грошей____${userAccount.toString()}`)
+
+            // Вилучення грошей
+            userAccount.getDecreaseMoney (800)
+            console.log (`Вилучення грошей____${userAccount.toString()}`)
+
+            // Визначення курсу долара, при якому сума в грн збільшиться на 100
+            console.log(`Щоб збільшити нашу суму на 100 грн, курс має бути:  ${userAccount. getDollarExchangeRateIfСhangeHryvnia ().toFixed(2)}`)
+
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>

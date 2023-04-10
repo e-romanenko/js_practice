@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 1</title>
+</head>
+   <body  style="font-size: 20px;">
+      <h2>Задача 1</h2>
+         <p>
+            Створити клас TDate для роботи із датами у форматі “день.місяць.рік”. <br>
+            Дата представляється структурою із трьома полями. <br>
+            Реалізувати методи збільшення/зменшення дати на певну кількість днів, місяців чи років.<br>
+            Введення та виведення дати реалізувати за допомогою методу  toString. 
+         </p>
+         <h5>Результат: в консолі</h5>
+         
+         <script>
+
+            class TDate {
+               constructor (objectDate){ 
+                  let {day, month, year} = objectDate
+               // Властивості зберігаємо   
+                  this.day = day
+                  this.month = month
+                  this.year = year
+               }
+               /*___________________________Методи__________________________________*/ 
+               // метод збільшення років 
+               incrementOfYear (valueYear){
+                  return this.year + valueYear
+               }
+               // метод збільшення місяців 
+               incrementOfMonth (valueMonth){ 
+                  this.month = this.month + valueMonth
+                  if(this.month <= 12) return this.month
+                  else {
+                     this.year = this.incrementOfYear(Math.floor(this.month / 12))
+                     this.month = this.month % 12
+                  }
+               }
+               // метод збільшення днів 
+               incrementOfDay (valueDay){
+                  this.day = this.day + valueDay
+                  if ((this.day) <= 30) return this.day
+                  else {
+                     //this.month = this.month +(Math.floor(this.day / 30))
+                     //this.year = this.year + (Math.floor(this.month / 12)) // або переприсвоюю значення
+                     this.incrementOfMonth(Math.floor(this.day / 30)) // або викликаю функцію
+                     this.day = this.day  % 30
+                  }
+               }
+               /*___________________________________________________________________*/
+               // метод зменшення років 
+               reductionOfYear (valueYear){
+                  return this.year - valueYear
+               }
+               // метод зменшення місяців 
+               reductionOfMonth (valueMonth){
+                  this.month = this.month - valueMonth  
+                  if (this.month <= 0) {
+                     this.year = this.reductionOfYear(Math.ceil(Math.abs(this.month)/ 12))
+                     if (this.month <= 12 && this.month > 0) return this.month 
+                     else return this.month = 12 - Math.abs(this.month) % 12
+                  }   
+                  else return this.month
+               }
+               // метод зменшення днів 
+               reductionOfDay (valueDay){
+                  this.day = this.day - valueDay
+                  if (this.day > 0) return this.day
+                  else {
+                     this.reductionOfMonth(Math.ceil(Math.abs(this.day)/30))
+                     if ((this.day < 30) && (this.day > 0)) return this.day
+                     else return this.day = 30 - Math.abs(this.day) % 30
+                  }
+               }
+               /*___________________________________________________________________*/
+               // метод виведення дати
+               toString (){
+                  return `Змінена дата: ${this.day}.${this.month}.${this.year}`
+               }
+            }
+
+            // __________________Створення об'єкту___________________
+            const userDay = parseInt(prompt('Введіть день','1'))
+            const userMonth = parseInt(prompt('Введіть місяць','1'))
+            const userYear = parseInt(prompt('Введіть рік','2023'))
+
+            let dataStart = {
+               day: userDay,
+               month: userMonth,
+               year: userYear,
+            }
+            //console.log(dataStart)
+            console.log(`Початкова дата: ${dataStart.day}.${dataStart.month}.${dataStart.year}`)
+            
+
+            // Зміна значення 
+            const userDayСhange = parseInt(prompt('На скільки днів змінити дату','0'))
+            const userMonthСhange = parseInt(prompt('На скільки місяців змінити дату','0'))
+            const userYearСhange = parseInt(prompt('На скільки років змінити дати','0')) 
+
+            //_____________________Збільшення дати______________________
+            // let data1 = new TDate (dataStart)
+            // data1.incrementOfYear(userYearСhange)
+            // data1.incrementOfMonth(userMonthСhange)
+            // data1.incrementOfDay(userDayСhange) 
+            // console.log(data1.toString ())
+            
+            //_____________________Зменшення дати_______________________
+            let data2 = new TDate (dataStart)
+            data2.reductionOfYear(userYearСhange)
+            data2.reductionOfMonth(userMonthСhange)
+            data2.reductionOfDay(userDayСhange)
+            console.log(data2.toString ())
+
+         </script>
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>

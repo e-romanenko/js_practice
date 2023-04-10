@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>task 4</title>
+</head>
+   <body style="font-size: 20px;">
+      <h2>Задача 4</h2>
+         <p>
+            Створити клас TBankomat, який моделює роботу банкомата. <br>
+            Клас повинен містити поля для зберігання кількості купюр кожного із номіналів від 5 до 200 гривень.<br> 
+            Реалізувати методи знаходження максимальної та мінімальної сум, які може видати банкомат, <br>
+            та метод зняття деякої суми.
+         </p>
+         
+         <script>
+            //____________Створюємо об'єкт з кількістю кожної купюри_________
+            let bill = [5,10,20,50,100,200]
+            let numBills = []
+            for (let i = 0; i < bill.length; i++) {
+               let userNumBill =  parseInt(prompt(`Введіть КІЛЬКІСТЬ купюр номіналом ${bill[i]}грн`,'5'))
+               numBills.push(userNumBill) 
+            }
+
+            let objBills = {
+               billNum_5: numBills[0],
+               billNum_10: numBills[1],
+               billNum_20: numBills[2],
+               billNum_50: numBills[3],
+               billNum_100: numBills[4],
+               billNum_200: numBills[5],
+            } 
+               
+            //________________________Створюємо клас ______________________
+            class TBankomat {
+
+               #account_ATM 
+
+               constructor ({billNum_5, billNum_10, billNum_20, billNum_50, billNum_100, billNum_200}) {
+                  this.bill_5 = billNum_5
+                  this.bill_10 = billNum_10
+                  this.bill_20 = billNum_20
+                  this.bill_50 = billNum_50
+                  this.bill_100 = billNum_100
+                  this.bill_200 = billNum_200
+                  this.#account_ATM = this.calcMaxSumGiveATM()
+               }
+               get AccountATM(){
+                  return this.#account_ATM
+               }
+               set AccountATM (newValue) {
+                  if (newValue > this.#account_ATM)
+                     throw new Error ('Недостатньо коштів на рахунку')
+                  this.#account_ATM = this.#account_ATM - newValue
+               }
+               // __________________________Методи___________________________
+               // метод знаходження максимальної суми яку може дати банкомат
+               calcMaxSumGiveATM (){
+                  return this.bill_5*5 + this.bill_10*10 + this.bill_20*20 + this.bill_50*50 + this.bill_100*100 + this.bill_200*200
+               } 
+               // метод знаходження мінімальної суми яку може дати банкомат
+               getMinSumGiveATM (){
+                  let resalt 
+                  if (this.bill_5 >= 1) resalt = `Мin сума для зняття 5 грн`  
+                  else if (this.bill_10 >= 1) resalt = `Мin сума для зняття 10 грн`  
+                  else if (this.bill_20 >= 1) resalt = `Мin сума для зняття 20 грн`  
+                  else if (this.bill_50 >= 1) resalt = `Мin сума для зняття 50 грн`  
+                  else if (this.bill_100 >= 1) resalt = `Мin сума для зняття 100 грн`
+                  else if (this.bill_200 >= 1) resalt = `Мin сума для зняття 200 грн`
+                  else  resalt = `Нажаль в банкоматі не має грошей` 
+                  return resalt
+               }    
+               // метод зняття деякої суми 
+               getMoney (sumMoney){
+                  this.AccountATM = sumMoney
+               }
+
+               toString (){
+                  return `На рахунку ${this.#account_ATM} грн.`
+               }
+               valueOf (){
+                  return this.#account_ATM
+               }
+            }
+            //_______________Створюємо перший об'єкт за допомогою класа TBankomat__________
+            let ATM_1 = new TBankomat(objBills)
+            let  userMoney 
+            do {
+               userMoney = parseFloat(prompt(`В банкоматі ${ATM_1.AccountATM} грн. Скільки хочете зняти готівки?`, '100'))   
+               ATM_1.getMoney(userMoney)
+            } while(userMoney)
+         
+         </script>
+
+         <br>
+         <br>
+         <br>
+         <div>
+            <a href="../index.html">на головну</a>
+         </div>
+   </body>
+</html>
